@@ -3,705 +3,964 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>عروض وي مع المهندس | كارت بيزنس رقمي</title>
+  <title>عروض وي مع المهندس | باقات WE الحصرية</title>
+
+  <!-- Google Fonts: Cairo & Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- QRCode.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts: Cairo -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- QRCode.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
             cairo: ['Cairo', 'sans-serif'],
+            tajawal: ['Tajawal', 'sans-serif']
           },
           colors: {
-            baseDark: '#09090E',
-            cardDark: '#12121A',
-            cardElevated: '#181824',
-            wePurple: '#5C2D91',
-            weViolet: '#7B3FE4',
-            goldAccent: '#D4AF37',
-            goldSoft: '#F3E5AB',
-          },
-        },
-      },
+            obsidian: '#09090E',
+            wePurple: '#4C1D95',
+            weViolet: '#7C3AED',
+            goldPrimary: '#D4AF37',
+            goldLight: '#F3E5AB'
+          }
+        }
+      }
     };
   </script>
 
   <style>
     body {
-      font-family: 'Cairo', sans-serif;
+      font-family: 'Cairo', 'Tajawal', sans-serif;
       background-color: #09090E;
+      background-image:
+        radial-gradient(circle at 15% 10%, rgba(124, 58, 237, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
+        linear-gradient(180deg, #09090E 0%, #100A1F 50%, #09090E 100%);
       color: #F8FAFC;
       overflow-x: hidden;
     }
 
-    /* Clean Ambient Spotlight Background */
-    .ambient-bg {
-      background: 
-        radial-gradient(circle at 50% -10%, rgba(123, 63, 228, 0.22) 0%, transparent 55%),
-        radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
-        #09090E;
+    .luxury-glass {
+      background: linear-gradient(145deg, rgba(24, 16, 44, 0.86), rgba(12, 10, 22, 0.94));
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
-    /* Sleek Minimalist Card Surface */
-    .sleek-card {
-      background: rgba(18, 18, 26, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.65);
-    }
-
-    .sleek-card-gold {
-      background: linear-gradient(165deg, rgba(24, 24, 36, 0.95) 0%, rgba(15, 15, 22, 0.98) 100%);
-      border: 1px solid rgba(212, 175, 55, 0.28);
-      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.03) inset;
-    }
-
-    .gold-text {
-      background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 60%, #B88A1E 100%);
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #B48A1E 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .btn-primary-we {
-      background: linear-gradient(135deg, #6E34B2 0%, #4E2282 100%);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .btn-primary-we:hover {
-      background: linear-gradient(135deg, #7E3EC9 0%, #5C2D91 100%);
-      border-color: rgba(212, 175, 55, 0.45);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(123, 63, 228, 0.5);
-    }
-
-    .btn-gold {
-      background: linear-gradient(135deg, #E2C368 0%, #C89E2B 100%);
+    .gold-btn {
+      background: linear-gradient(135deg, #F3E5AB 0%, #D4AF37 55%, #B8860B 100%);
       color: #09090E;
-      transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .btn-gold:hover {
-      filter: brightness(1.06);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 24px -8px rgba(212, 175, 55, 0.45);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.32);
     }
 
-    /* Smooth Custom Scrollbar */
-    ::-webkit-scrollbar { width: 5px; height: 5px; }
-    ::-webkit-scrollbar-track { background: #09090E; }
-    ::-webkit-scrollbar-thumb { background: #2A2A3C; border-radius: 9999px; }
-    ::-webkit-scrollbar-thumb:hover { background: #D4AF37; }
+    .gold-btn:hover {
+      filter: brightness(1.07);
+      transform: translateY(-1px);
+    }
+
+    .we-btn {
+      background: linear-gradient(135deg, #6D28D9 0%, #4C1D95 100%);
+      border: 1px solid rgba(212, 175, 55, 0.35);
+      box-shadow: 0 8px 22px rgba(109, 40, 217, 0.35);
+    }
+
+    .we-btn:hover {
+      border-color: #D4AF37;
+      transform: translateY(-1px);
+    }
+
+    /* Custom Scrollbar for Modals */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(212, 175, 55, 0.4);
+      border-radius: 9999px;
+    }
   </style>
 </head>
-<body class="ambient-bg min-h-screen relative selection:bg-weViolet selection:text-white pb-14">
+<body class="min-h-screen py-6 px-3 sm:px-6 flex flex-col items-center justify-start">
 
-  <!-- Toast Notification -->
-  <div id="toastBox" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 transition-all duration-300 transform -translate-y-3">
-    <div class="sleek-card-gold px-4 py-2.5 rounded-full flex items-center gap-2.5 shadow-2xl">
-      <span class="w-5 h-5 rounded-full bg-goldAccent text-baseDark flex items-center justify-center text-[10px]">
-        <i class="fa-solid fa-check"></i>
-      </span>
-      <span id="toastMessage" class="text-xs font-bold text-white">تم التنفيذ بنجاح</span>
+  <!-- Non-blocking Floating Toast Notification -->
+  <div id="toastBox" class="fixed top-5 left-1/2 -translate-x-1/2 z-[100] pointer-events-none opacity-0 -translate-y-4 transition-all duration-300">
+    <div class="bg-[#160F29]/95 border border-goldPrimary/60 text-goldLight px-5 py-2.5 rounded-full shadow-2xl flex items-center gap-2 text-xs sm:text-sm font-bold backdrop-blur-md">
+      <i class="fa-solid fa-circle-check text-emerald-400"></i>
+      <span id="toastMessage">تم التنفيذ بنجاح</span>
     </div>
   </div>
 
-  <!-- Main Centered Container -->
-  <main class="relative z-10 max-w-md mx-auto px-4 pt-6 sm:pt-10 space-y-5">
+  <!-- Main Container -->
+  <main class="w-full max-w-xl mx-auto">
 
     <!-- ========================================== -->
-    <!-- 1. ULTRA-CLEAN EXECUTIVE BUSINESS CARD     -->
+    <!-- 1. HERO IDENTITY & CONTACT CARD            -->
     <!-- ========================================== -->
-    <section class="sleek-card-gold rounded-[28px] p-6 relative overflow-hidden">
-      <!-- Subtle Top Accent -->
-      <div class="absolute top-0 inset-x-12 h-[2px] bg-gradient-to-r from-transparent via-goldAccent to-transparent opacity-75"></div>
+    <section class="luxury-glass rounded-3xl p-5 sm:p-7 mb-6 relative overflow-hidden">
+      <!-- Subtle Decorative Corner Glow -->
+      <div class="absolute -top-20 -right-20 w-44 h-44 bg-weViolet/20 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-20 -left-20 w-44 h-44 bg-goldPrimary/10 rounded-full blur-3xl pointer-events-none"></div>
 
-      <!-- Minimal Top Status Row -->
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-2">
-          <div class="w-7 h-7 rounded-lg bg-wePurple/40 border border-goldAccent/30 flex items-center justify-center">
-            <svg viewBox="0 0 64 64" class="w-4 h-4" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 24L18 42L25 29L32 42L38 24" stroke="#F3E5AB" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M44 33H53C53 28 49.5 25 46.5 25C43 25 40.5 28 40.5 33C40.5 38 43 41 47 41C50 41 52 39.5 53 38" stroke="#FFFFFF" stroke-width="4.5" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="text-xs font-bold text-slate-300 tracking-wide">المصرية للاتصالات <span class="text-goldAccent">WE</span></span>
+      <!-- Top Status Header -->
+      <div class="flex items-center justify-between gap-2 mb-5 relative z-10">
+        <div class="flex items-center gap-1.5 bg-wePurple/40 border border-weViolet/40 px-3 py-1.5 rounded-full">
+          <i class="fa-solid fa-crown text-goldPrimary text-xs"></i>
+          <span class="text-[11px] font-extrabold text-goldLight tracking-wide">شريك معتمد • WE VIP</span>
         </div>
 
-        <span class="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-full">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-          متاح الآن
-        </span>
+        <div id="availabilityBadge" class="flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-400/30 px-3 py-1.5 rounded-full transition-all duration-300">
+          <span id="availabilityPing" class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          <span id="availabilityText" class="text-[11px] font-bold text-emerald-300">متاح للرد الفوري</span>
+        </div>
       </div>
 
-      <!-- Clean Centered Identity -->
-      <div class="text-center mb-6">
-        <div id="logoAdminTrigger" title="اضغط مرتين" class="relative inline-block mb-3.5 select-none cursor-pointer">
-          <div class="w-24 h-24 rounded-full p-[2px] bg-gradient-to-b from-goldAccent via-goldAccent/40 to-weViolet mx-auto shadow-xl">
-            <div id="avatarContainer" class="w-full h-full rounded-full bg-baseDark flex items-center justify-center overflow-hidden">
-              <!-- Minimalist Geometric Monogram Logo -->
-              <div id="profileInitials" class="w-full h-full flex items-center justify-center bg-gradient-to-b from-[#1A162B] to-[#0D0D14]">
-                <svg viewBox="0 0 120 120" class="w-16 h-16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="cleanGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stop-color="#F3E5AB"/>
-                      <stop offset="100%" stop-color="#D4AF37"/>
-                    </linearGradient>
-                  </defs>
-                  <path d="M40 34C51 24 69 24 80 34" stroke="url(#cleanGold)" stroke-width="3" stroke-linecap="round"/>
-                  <path d="M26 52L35 78L46 60L57 78L66 52" stroke="url(#cleanGold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
-                  <path d="M74 65H93C93 56 87 51 81 51C74 51 70 57 70 65C70 73 74 79 82 79C88 79 91 76 93 73" stroke="#FFFFFF" stroke-width="5.5" stroke-linecap="round"/>
-                </svg>
-              </div>
-              <img id="profileImage" src="" alt="الشعار" class="hidden w-full h-full object-cover" onerror="this.classList.add('hidden'); document.getElementById('profileInitials').classList.remove('hidden');" />
+      <!-- Profile Avatar & Identity -->
+      <div class="text-center mb-6 relative z-10">
+        <div id="logoTrigger" ondblclick="promptAdminAccess()" title="اضغط مرتين لإدارة الكارت" class="relative inline-block mb-4 cursor-pointer select-none group">
+          <div class="w-24 h-24 sm:w-28 sm:h-28 rounded-full p-1 bg-gradient-to-tr from-goldPrimary via-weViolet to-goldLight shadow-2xl mx-auto transition-transform duration-300 group-hover:scale-105">
+            <div class="w-full h-full rounded-full bg-[#120B24] flex items-center justify-center overflow-hidden relative">
+              <!-- Custom Uploaded Image -->
+              <img id="avatarImage" src="" alt="Logo" class="w-full h-full object-cover hidden" onerror="this.classList.add('hidden'); document.getElementById('avatarDefaultSvg').classList.remove('hidden');" />
+              <!-- Default Royal WE Vector Logo -->
+              <svg id="avatarDefaultSvg" viewBox="0 0 120 120" class="w-16 h-16 sm:w-20 sm:h-20">
+                <defs>
+                  <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#F3E5AB" />
+                    <stop offset="50%" stop-color="#D4AF37" />
+                    <stop offset="100%" stop-color="#B48A1E" />
+                  </linearGradient>
+                </defs>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="url(#goldGrad)" stroke-width="2" stroke-dasharray="6 3" />
+                <text x="60" y="68" text-anchor="middle" fill="url(#goldGrad)" font-family="Cairo, sans-serif" font-weight="900" font-size="38" letter-spacing="1">we</text>
+                <text x="60" y="88" text-anchor="middle" fill="#E2E8F0" font-family="Cairo, sans-serif" font-weight="700" font-size="11">VIP OFFERS</text>
+              </svg>
             </div>
           </div>
-          <div class="absolute bottom-0.5 right-0.5 w-6 h-6 rounded-full bg-goldAccent text-baseDark flex items-center justify-center text-[10px] border-2 border-baseDark shadow" title="وكيل معتمد">
-            <i class="fa-solid fa-check"></i>
-          </div>
+          <span class="absolute -bottom-1 left-1/2 -translate-x-1/2 bg-gradient-to-r from-goldPrimary to-amber-500 text-obsidian text-[10px] font-black px-3 py-0.5 rounded-full shadow-lg whitespace-nowrap">
+            موثّق <i class="fa-solid fa-badge-check mr-0.5"></i>
+          </span>
         </div>
 
-        <h1 id="displayName" class="text-2xl font-black gold-text tracking-tight mb-1">
+        <h1 id="displayName" class="text-2xl sm:text-3xl font-black gold-gradient-text tracking-tight mb-1">
           عروض وي مع المهندس
         </h1>
-        <p id="displayTitle" class="text-xs sm:text-sm font-semibold text-slate-300 mb-2.5">
-          خدمات المهندس — باقات وعروض WE الحصرية
+        <p id="displayTitle" class="text-xs sm:text-sm font-bold text-slate-200 mb-1.5">
+          خدمات المهندس — باقات وعروض WE الحصرية (دقائق وميجابايتس)
         </p>
-        <p id="displayBio" class="text-xs text-slate-400 leading-relaxed max-w-xs mx-auto">
-          دقائق لكل الشبكات وميجابايتس لكل المواقع بأسعار تنافسية وتفعيل فوري في المواعيد المحددة.
+        <p id="displayBranch" class="text-[11px] sm:text-xs font-semibold text-goldLight/90 bg-white/5 inline-block px-3 py-1 rounded-full border border-white/10">
+          تفعيل الباقات يوم 1 و 16 من كل شهر — خدمة عملاء VIP
         </p>
+
+        <p id="displayBio" class="mt-4 text-xs sm:text-sm text-slate-300 leading-relaxed max-w-md mx-auto">
+          أقوى باقات وعروض WE الحصرية مع المهندس: دقائق لكل الشبكات وميجابايتس لكل المواقع بأسعار تنافسية وتفعيل فوري في المواعيد المحددة.
+        </p>
+
+        <!-- Smart Cycle Countdown Banner (1st & 16th of Month) -->
+        <div class="mt-4 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-2xl bg-gradient-to-r from-wePurple/40 via-goldPrimary/10 to-wePurple/40 border border-goldPrimary/35">
+          <i class="fa-solid fa-hourglass-half text-goldPrimary text-xs animate-pulse"></i>
+          <span id="cycleCountdownText" class="text-[11px] sm:text-xs font-extrabold text-goldLight">جاري حساب موعد التفعيل القادم...</span>
+        </div>
       </div>
 
-      <!-- Primary Contact Buttons (Clean & High Contrast) -->
-      <div class="grid grid-cols-2 gap-2.5 mb-2.5">
-        <a id="whatsappLink" href="https://wa.me/201550001111" target="_blank" rel="noopener" class="py-3 px-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-extrabold text-xs flex items-center justify-center gap-2 transition-all hover:-translate-y-0.5 shadow-lg shadow-emerald-950/50 cursor-pointer">
-          <i class="fa-brands fa-whatsapp text-base"></i>
-          <span>تواصل واتساب</span>
+      <!-- Primary Quick Action Buttons Grid -->
+      <div class="grid grid-cols-2 gap-2.5 sm:gap-3 mb-5 relative z-10">
+        <a id="btnWhatsappMain" href="https://wa.me/201550001111" target="_blank" rel="noopener noreferrer" class="col-span-2 sm:col-span-1 bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white py-3.5 px-4 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/40 transition-all">
+          <i class="fa-brands fa-whatsapp text-xl"></i>
+          <span>تواصل واتساب مباشر</span>
         </a>
 
-        <a id="callLink" href="tel:01550001111" class="btn-primary-we py-3 px-4 rounded-2xl text-white font-extrabold text-xs flex items-center justify-center gap-2 cursor-pointer">
-          <i class="fa-solid fa-phone text-goldSoft text-xs"></i>
-          <span>اتصال مباشر</span>
+        <a id="btnCallMain" href="tel:01550001111" class="we-btn text-white py-3.5 px-4 rounded-2xl font-extrabold text-sm flex items-center justify-center gap-2 transition-all">
+          <i class="fa-solid fa-phone-volume text-goldPrimary"></i>
+          <span>اتصال هاتفي</span>
         </a>
-      </div>
 
-      <!-- Secondary Utility Actions -->
-      <div class="grid grid-cols-2 gap-2.5 mb-5">
-        <button type="button" onclick="downloadVCard()" class="py-2.5 px-3 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
-          <i class="fa-solid fa-address-card text-goldAccent"></i>
+        <button type="button" onclick="downloadVCard()" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-goldPrimary/40 text-slate-200 py-3 px-3 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-address-card text-goldPrimary"></i>
           <span>حفظ جهة الاتصال</span>
         </button>
 
-        <button type="button" onclick="openQrModal()" class="py-2.5 px-3 rounded-2xl bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 text-slate-200 font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
-          <i class="fa-solid fa-qrcode text-goldAccent"></i>
-          <span>كود QR الصفحة</span>
+        <button type="button" onclick="openQrModal()" class="bg-white/5 hover:bg-white/10 border border-white/10 hover:border-goldPrimary/40 text-slate-200 py-3 px-3 rounded-2xl font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-qrcode text-goldPrimary"></i>
+          <span>كود QR السريع</span>
         </button>
       </div>
 
-      <!-- Clean 3-Column Feature Strip -->
-      <div class="grid grid-cols-3 divide-x divide-x-reverse divide-white/10 pt-4 border-t border-white/10 text-center">
-        <div>
-          <span class="text-xs font-black text-white block">1 و 16</span>
-          <span class="text-[10px] text-slate-400">تفعيل شهرياً</span>
+      <!-- Key Highlights Bar -->
+      <div class="grid grid-cols-3 gap-2 pt-4 border-t border-white/10 text-center">
+        <div class="p-2 rounded-xl bg-white/[0.03]">
+          <span class="text-xs sm:text-sm font-black gold-gradient-text block">1 و 16</span>
+          <span class="text-[10px] sm:text-[11px] text-slate-300">تفعيل شهرياً</span>
         </div>
-        <div>
-          <span class="text-xs font-black gold-text block">لكل المواقع</span>
-          <span class="text-[10px] text-slate-400">جيجا صافية</span>
+        <div class="p-2 rounded-xl bg-white/[0.03]">
+          <span class="text-xs sm:text-sm font-black text-white block">لكل المواقع</span>
+          <span class="text-[10px] sm:text-[11px] text-slate-300">ميجابايتس صافية</span>
         </div>
-        <div>
-          <span class="text-xs font-black text-white block">لكل الشبكات</span>
-          <span class="text-[10px] text-slate-400">دقائق شاملة</span>
+        <div class="p-2 rounded-xl bg-white/[0.03]">
+          <span class="text-xs sm:text-sm font-black text-emerald-400 block">لكل الشبكات</span>
+          <span class="text-[10px] sm:text-[11px] text-slate-300">دقائق شاملة</span>
         </div>
+      </div>
+
+      <!-- One-Tap Payment Number Copy Strip -->
+      <div id="paymentStrip" class="mt-4 pt-3.5 border-t border-white/10 flex items-center justify-between gap-2 bg-white/[0.03] px-3.5 py-2.5 rounded-2xl">
+        <div class="flex items-center gap-2.5 overflow-hidden">
+          <div class="w-8 h-8 rounded-xl bg-goldPrimary/15 text-goldPrimary flex items-center justify-center text-xs shrink-0">
+            <i class="fa-solid fa-wallet"></i>
+          </div>
+          <div class="overflow-hidden">
+            <span id="displayPaymentMethod" class="text-[10px] text-slate-400 block leading-tight">فودافون كاش / إنستاباي</span>
+            <span id="displayPaymentNumber" dir="ltr" class="text-xs sm:text-sm font-black text-white font-mono tracking-wider block truncate">01550001111</span>
+          </div>
+        </div>
+        <button type="button" onclick="copyPaymentNumber()" class="px-3 py-1.5 rounded-xl bg-goldPrimary/15 hover:bg-goldPrimary hover:text-obsidian border border-goldPrimary/40 text-goldLight text-[11px] font-extrabold transition-all flex items-center gap-1.5 shrink-0 cursor-pointer">
+          <i class="fa-regular fa-copy"></i>
+          <span>نسخ الرقم</span>
+        </button>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 2. MINIMALIST PACKAGES LAUNCHER            -->
+    <!-- 2. POPUP PACKAGE LAUNCHER BUTTONS          -->
     <!-- ========================================== -->
-    <section class="sleek-card rounded-[28px] p-5">
-      <div class="flex items-center justify-between mb-4">
+    <section class="luxury-glass rounded-3xl p-5 sm:p-6 mb-6">
+      <div class="flex items-center justify-between gap-2 mb-4">
         <div>
-          <h2 class="text-base font-black text-white">باقات الإنترنت والمكالمات</h2>
-          <p id="displayBranch" class="text-[11px] text-slate-400 mt-0.5">تفعيل الباقات يوم 1 و 16 من كل شهر</p>
+          <span class="text-[11px] font-bold text-goldPrimary uppercase tracking-wider block">باقات WE الحصرية</span>
+          <h2 class="text-lg sm:text-xl font-black text-white">اختر فئة الباقات لعرضها</h2>
         </div>
-        <span id="totalPackagesBadge" class="text-[11px] font-bold text-goldSoft bg-goldAccent/10 px-2.5 py-1 rounded-full">
-          11 باقة
+        <span id="totalPackagesBadge" class="text-[11px] font-bold text-goldLight bg-goldPrimary/10 border border-goldPrimary/30 px-2.5 py-1 rounded-full">
+          11 باقة متاحة
         </span>
       </div>
 
-      <!-- Clean List of Category Triggers -->
-      <div class="space-y-2.5 mb-3">
-        <button type="button" onclick="openPackagesModal('starter')" class="w-full p-3.5 rounded-2xl bg-cardElevated hover:bg-white/[0.07] border border-white/[0.07] hover:border-goldAccent/40 flex items-center justify-between transition-all cursor-pointer group">
+      <!-- Category Popup Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+        <!-- Starter Tier Button -->
+        <button type="button" onclick="openPackagesModal('starter')" class="group text-right p-4 rounded-2xl bg-white/[0.04] hover:bg-wePurple/35 border border-white/10 hover:border-goldPrimary/60 transition-all flex items-center justify-between cursor-pointer">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-wePurple/30 text-goldSoft flex items-center justify-center text-sm group-hover:scale-105 transition-transform">
+            <div class="w-11 h-11 rounded-2xl bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-bolt"></i>
             </div>
-            <div class="text-right">
-              <span class="text-sm font-extrabold text-white block">باقات التوفير</span>
-              <span class="text-[11px] text-slate-400">من 10 جيجا إلى 20 جيجا</span>
+            <div>
+              <h3 class="text-sm font-black text-white group-hover:text-goldLight transition-colors">باقات التوفير</h3>
+              <p class="text-[11px] text-slate-300">من 10 إلى 20 جيجا • تبدأ من 200 ج</p>
             </div>
           </div>
-          <div class="flex items-center gap-2 text-xs font-bold text-goldSoft">
-            <span>عرض</span>
-            <i class="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:-translate-x-1 transition-transform"></i>
-          </div>
+          <i class="fa-solid fa-arrow-up-left text-goldPrimary text-sm group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
         </button>
 
-        <button type="button" onclick="openPackagesModal('mid')" class="w-full p-3.5 rounded-2xl bg-cardElevated hover:bg-white/[0.07] border border-white/[0.07] hover:border-goldAccent/40 flex items-center justify-between transition-all cursor-pointer group">
+        <!-- Mid Tier Button -->
+        <button type="button" onclick="openPackagesModal('mid')" class="group text-right p-4 rounded-2xl bg-white/[0.04] hover:bg-wePurple/35 border border-white/10 hover:border-goldPrimary/60 transition-all flex items-center justify-between cursor-pointer">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-wePurple/30 text-goldSoft flex items-center justify-center text-sm group-hover:scale-105 transition-transform">
-              <i class="fa-solid fa-fire"></i>
+            <div class="w-11 h-11 rounded-2xl bg-weViolet/25 border border-weViolet/40 text-purple-200 flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
+              <i class="fa-solid fa-fire-flame-curved"></i>
             </div>
-            <div class="text-right">
-              <span class="text-sm font-extrabold text-white block">الباقات المتوسطة</span>
-              <span class="text-[11px] text-slate-400">من 30 جيجا إلى 60 جيجا</span>
+            <div>
+              <h3 class="text-sm font-black text-white group-hover:text-goldLight transition-colors">الباقات المتوسطة</h3>
+              <p class="text-[11px] text-slate-300">من 30 إلى 60 جيجا • الأكثر طلباً</p>
             </div>
           </div>
-          <div class="flex items-center gap-2 text-xs font-bold text-goldSoft">
-            <span>عرض</span>
-            <i class="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:-translate-x-1 transition-transform"></i>
-          </div>
+          <i class="fa-solid fa-arrow-up-left text-goldPrimary text-sm group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
         </button>
 
-        <button type="button" onclick="openPackagesModal('royal')" class="w-full p-3.5 rounded-2xl bg-cardElevated hover:bg-white/[0.07] border border-white/[0.07] hover:border-goldAccent/40 flex items-center justify-between transition-all cursor-pointer group">
+        <!-- Royal Tier Button -->
+        <button type="button" onclick="openPackagesModal('royal')" class="sm:col-span-2 group text-right p-4 rounded-2xl bg-gradient-to-l from-wePurple/40 to-white/[0.04] hover:from-wePurple/60 border border-goldPrimary/30 hover:border-goldPrimary transition-all flex items-center justify-between cursor-pointer">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-xl bg-goldAccent/15 text-goldAccent flex items-center justify-center text-sm group-hover:scale-105 transition-transform">
+            <div class="w-11 h-11 rounded-2xl bg-goldPrimary/20 border border-goldPrimary/50 text-goldPrimary flex items-center justify-center text-lg shrink-0 group-hover:scale-105 transition-transform">
               <i class="fa-solid fa-crown"></i>
             </div>
-            <div class="text-right">
-              <span class="text-sm font-extrabold text-white block">الباقات الملكية VIP</span>
-              <span class="text-[11px] text-slate-400">من 70 جيجا إلى 100 جيجا</span>
+            <div>
+              <h3 class="text-sm font-black text-goldLight">الباقات الملكية VIP</h3>
+              <p class="text-[11px] text-slate-200">من 70 إلى 100 جيجا + حتى 2000 دقيقة لكل الشبكات</p>
             </div>
           </div>
-          <div class="flex items-center gap-2 text-xs font-bold text-goldSoft">
-            <span>عرض</span>
-            <i class="fa-solid fa-chevron-left text-[10px] text-slate-400 group-hover:-translate-x-1 transition-transform"></i>
-          </div>
+          <i class="fa-solid fa-arrow-up-left text-goldPrimary text-sm group-hover:-translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
         </button>
       </div>
 
-      <!-- View All Button -->
-      <button type="button" onclick="openPackagesModal('all')" class="btn-gold w-full py-3 px-4 rounded-2xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer">
-        <span>عرض جميع الباقات والأسعار</span>
-        <i class="fa-solid fa-arrow-up-left-from-square text-[11px]"></i>
+      <!-- All Packages Master Button -->
+      <button type="button" onclick="openPackagesModal('all')" class="gold-btn w-full py-3.5 px-4 rounded-2xl text-xs sm:text-sm font-black flex items-center justify-center gap-2 transition-all cursor-pointer">
+        <i class="fa-solid fa-layer-group"></i>
+        <span>عرض جميع الباقات والأسعار (11 باقة)</span>
       </button>
     </section>
 
     <!-- ========================================== -->
-    <!-- 3. SMART PACKAGE ADVISOR (SLEEK & SIMPLE)  -->
+    <!-- 3. SMART PACKAGE ADVISOR                   -->
     <!-- ========================================== -->
-    <section class="sleek-card rounded-[28px] p-5">
+    <section class="luxury-glass rounded-3xl p-5 sm:p-6 mb-6">
       <div class="flex items-center gap-2.5 mb-4">
-        <div class="w-8 h-8 rounded-xl bg-goldAccent/15 text-goldAccent flex items-center justify-center text-xs">
+        <div class="w-9 h-9 rounded-xl bg-goldPrimary/15 border border-goldPrimary/40 text-goldPrimary flex items-center justify-center">
           <i class="fa-solid fa-wand-magic-sparkles"></i>
         </div>
         <div>
-          <h3 class="text-sm font-black text-white">رشّح لي الباقة الأنسب</h3>
-          <p class="text-[11px] text-slate-400">اختر معدل استهلاكك</p>
+          <h3 class="text-sm sm:text-base font-extrabold text-white">المساعد الذكي لاختيار الباقة</h3>
+          <p class="text-[11px] text-slate-400">حدد استهلاكك وسنرشح لك الباقة الأنسب فوراً</p>
         </div>
       </div>
 
-      <div class="space-y-3 text-xs">
-        <div class="grid grid-cols-3 gap-2">
-          <button type="button" onclick="setAdvisorDevices('low', this)" class="advisor-dev-btn py-2 rounded-xl border border-goldAccent bg-goldAccent/15 text-white font-bold transition-all cursor-pointer">
-            اقتصادي
-          </button>
-          <button type="button" onclick="setAdvisorDevices('mid', this)" class="advisor-dev-btn py-2 rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white font-bold transition-all cursor-pointer">
-            متوسط
-          </button>
-          <button type="button" onclick="setAdvisorDevices('high', this)" class="advisor-dev-btn py-2 rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white font-bold transition-all cursor-pointer">
-            مكثف VIP
-          </button>
-        </div>
-
-        <div class="grid grid-cols-3 gap-2">
-          <button type="button" onclick="setAdvisorUsage('browse', this)" class="advisor-use-btn py-2 rounded-xl border border-goldAccent bg-goldAccent/15 text-white font-bold transition-all cursor-pointer">
-            سوشيال
-          </button>
-          <button type="button" onclick="setAdvisorUsage('gaming', this)" class="advisor-use-btn py-2 rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white font-bold transition-all cursor-pointer">
-            فيديو وألعاب
-          </button>
-          <button type="button" onclick="setAdvisorUsage('4k', this)" class="advisor-use-btn py-2 rounded-xl border border-white/10 bg-white/[0.03] text-slate-400 hover:text-white font-bold transition-all cursor-pointer">
-            شغل وبث
-          </button>
-        </div>
-
-        <!-- Clean Recommendation Bar -->
-        <div class="mt-3 p-3.5 rounded-2xl bg-cardElevated border border-goldAccent/30 flex items-center justify-between gap-3">
-          <div>
-            <span class="text-[10px] font-bold text-goldAccent block">الترشيح المناسب لك</span>
-            <span id="recPkgName" class="text-sm font-black text-white">باقة 200 جنيه</span>
-            <span id="recPkgDetails" class="text-[11px] text-slate-400 block">1000 دقيقة • 10 جيجا</span>
-          </div>
-          <button type="button" onclick="orderRecommended()" class="btn-gold px-4 py-2 rounded-xl text-xs font-extrabold whitespace-nowrap cursor-pointer">
-            اطلبها
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========================================== -->
-    <!-- 4. COMPACT QR SHARE CARD & FOOTER          -->
-    <!-- ========================================== -->
-    <section class="sleek-card rounded-[28px] p-4 flex items-center gap-3.5">
-      <div onclick="openQrModal()" title="اضغط لتكبير الكود" class="bg-white p-1.5 rounded-xl border border-goldAccent/60 shrink-0 cursor-pointer hover:scale-105 transition-transform">
-        <div id="inlineQrCode"></div>
-      </div>
-      <div class="flex-1">
-        <span class="text-xs font-extrabold text-white block mb-0.5">شارك الصفحة مع أصدقائك</span>
-        <p class="text-[11px] text-slate-400 mb-2.5">امسح الكود أو انسخ رابط الكارت مباشرة</p>
-        <div class="flex items-center gap-2">
-          <button type="button" onclick="copyCardLink(this)" class="btn-primary-we px-3 py-1.5 rounded-xl text-[11px] font-bold text-white flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-regular fa-copy text-goldSoft"></i>
-            <span>نسخ الرابط</span>
-          </button>
-          <button type="button" onclick="downloadQrPng()" class="px-3 py-1.5 rounded-xl bg-white/[0.06] hover:bg-white/10 text-[11px] font-bold text-slate-200 flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-download text-goldAccent"></i>
-            <span>حفظ QR</span>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <footer class="text-center pt-1 pb-4">
-      <p class="text-[11px] text-slate-500">عروض وي مع المهندس • كارت أعمال رقمي</p>
-    </footer>
-  </main>
-
-  <!-- ========================================== -->
-  <!-- FLOATING CUSTOMIZE BUTTON (ADMIN ONLY)     -->
-  <!-- ========================================== -->
-  <button id="adminCustomizeBtn" onclick="openEditModal()" class="hidden fixed bottom-5 left-5 z-40 sleek-card-gold px-4 py-2.5 rounded-full text-goldSoft hover:bg-wePurple hover:text-white transition-all shadow-2xl items-center gap-2 text-xs font-extrabold cursor-pointer">
-    <i class="fa-solid fa-pen-to-square text-goldAccent"></i>
-    <span>تعديل البيانات والباقات</span>
-  </button>
-
-  <!-- ========================================== -->
-  <!-- POPUP MODAL: INTERACTIVE PACKAGES VIEWER   -->
-  <!-- ========================================== -->
-  <div id="packagesModal" onclick="if(event.target === this) closePackagesModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5 overflow-y-auto">
-    <div class="sleek-card-gold rounded-[28px] max-w-xl w-full p-4 sm:p-6 relative my-auto max-h-[88vh] flex flex-col">
-      <!-- Modal Header -->
-      <div class="flex items-center justify-between gap-3 pb-3 mb-3 border-b border-white/10 shrink-0">
+      <div class="space-y-3 mb-4">
         <div>
-          <span class="text-[11px] font-bold text-goldAccent block">عروض وي مع المهندس</span>
-          <h3 id="modalPackagesTitle" class="text-base sm:text-lg font-black text-white">باقات التوفير (10 - 20 جيجا)</h3>
-        </div>
-        <button type="button" onclick="closePackagesModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-rose-500/80 text-white flex items-center justify-center transition-colors cursor-pointer shrink-0">
-          <i class="fa-solid fa-xmark text-sm"></i>
-        </button>
-      </div>
-
-      <!-- Filter Tabs Inside Modal -->
-      <div class="grid grid-cols-4 gap-1.5 p-1 rounded-2xl bg-baseDark border border-white/10 mb-4 shrink-0">
-        <button type="button" onclick="selectTier('all')" id="tab-all" class="tier-tab py-2 px-1 rounded-xl text-[11px] font-extrabold transition-all cursor-pointer text-slate-400 hover:text-white">
-          الكل (11)
-        </button>
-        <button type="button" onclick="selectTier('starter')" id="tab-starter" class="tier-tab py-2 px-1 rounded-xl text-[11px] font-extrabold transition-all cursor-pointer bg-wePurple text-white">
-          التوفير
-        </button>
-        <button type="button" onclick="selectTier('mid')" id="tab-mid" class="tier-tab py-2 px-1 rounded-xl text-[11px] font-extrabold transition-all cursor-pointer text-slate-400 hover:text-white">
-          المتوسطة
-        </button>
-        <button type="button" onclick="selectTier('royal')" id="tab-royal" class="tier-tab py-2 px-1 rounded-xl text-[11px] font-extrabold transition-all cursor-pointer text-slate-400 hover:text-white">
-          الملكية
-        </button>
-      </div>
-
-      <!-- Packages Grid -->
-      <div id="packagesGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-3 overflow-y-auto pr-1 flex-1"></div>
-
-      <!-- Footer -->
-      <div class="mt-3 pt-3 border-t border-white/10 flex items-center justify-between text-[11px] text-slate-300 shrink-0">
-        <span><i class="fa-solid fa-calendar-check text-goldAccent ml-1"></i>التفعيل: يوم 1 و 16 من الشهر</span>
-        <button type="button" onclick="closePackagesModal()" class="px-3 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold cursor-pointer">
-          إغلاق
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- MODAL 1: QR CODE & SHARE                   -->
-  <!-- ========================================== -->
-  <div id="qrModal" onclick="if(event.target === this) closeQrModal()" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="sleek-card-gold rounded-[28px] max-w-sm w-full p-6 text-center relative">
-      <button onclick="closeQrModal()" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-
-      <h3 class="text-base font-black text-white mb-1">باركود مشاركة الكارت</h3>
-      <p class="text-xs text-slate-400 mb-4">امسح الكود بكاميرا الهاتف لفتح الصفحة فوراً</p>
-
-      <div class="bg-white p-3.5 rounded-2xl inline-block shadow-xl mb-3 border-2 border-goldAccent">
-        <div id="qrcode"></div>
-      </div>
-
-      <p id="qrAgentName" class="text-sm font-extrabold gold-text mb-4">عروض وي مع المهندس</p>
-
-      <div class="grid grid-cols-2 gap-2">
-        <button onclick="copyCardLink(this)" class="btn-primary-we py-2.5 px-3 rounded-xl text-xs font-bold text-white flex items-center justify-center gap-1.5 cursor-pointer">
-          <i class="fa-solid fa-link text-goldSoft"></i>
-          <span>نسخ الرابط</span>
-        </button>
-        <button onclick="downloadQrPng()" class="btn-gold py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer">
-          <i class="fa-solid fa-download"></i>
-          <span>تحميل PNG</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========================================== -->
-  <!-- MODAL 2: ADMIN EDITOR                      -->
-  <!-- ========================================== -->
-  <div id="adminPasswordModal" onclick="if(event.target === this) closePasswordModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
-    <div class="sleek-card-gold rounded-[28px] max-w-xs w-full p-6 text-center relative">
-      <button type="button" onclick="closePasswordModal()" class="absolute top-4 left-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
-        <i class="fa-solid fa-xmark text-xs"></i>
-      </button>
-
-      <div class="w-12 h-12 rounded-2xl bg-goldAccent/15 text-goldAccent flex items-center justify-center mx-auto mb-3 text-lg border border-goldAccent/30">
-        <i class="fa-solid fa-lock"></i>
-      </div>
-      <h3 class="text-base font-black text-white mb-1">دخول لوحة التحكم</h3>
-      <p class="text-[11px] text-slate-400 mb-4">أدخل كلمة مرور الأدمن للمتابعة</p>
-
-      <form onsubmit="verifyAdminPassword(event)" class="space-y-3">
-        <input type="password" id="adminPasswordInput" required dir="ltr" placeholder="••••••••" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2.5 text-center text-sm font-bold text-white tracking-widest outline-none" />
-        <button type="submit" class="btn-gold w-full py-2.5 rounded-xl text-xs font-black cursor-pointer">
-          دخول
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <div id="editModal" onclick="if(event.target === this) closeEditModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4 overflow-y-auto">
-    <div class="sleek-card-gold rounded-[28px] max-w-lg w-full p-5 sm:p-6 relative my-8 max-h-[90vh] flex flex-col">
-      <div class="flex items-center justify-between mb-3 pb-3 border-b border-white/10 shrink-0">
-        <div class="flex items-center gap-2">
-          <i class="fa-solid fa-sliders text-goldAccent"></i>
-          <h3 class="text-base font-black text-white">لوحة تحكم الأدمن</h3>
-        </div>
-        <button onclick="closeEditModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
-          <i class="fa-solid fa-xmark"></i>
-        </button>
-      </div>
-
-      <div class="grid grid-cols-2 gap-2 p-1 rounded-2xl bg-baseDark border border-white/10 mb-4 shrink-0">
-        <button type="button" id="adminTabProfileBtn" onclick="switchAdminTab('profile')" class="py-2 px-3 rounded-xl text-xs font-extrabold transition-all cursor-pointer bg-wePurple text-white">
-          بيانات الكارت
-        </button>
-        <button type="button" id="adminTabPackagesBtn" onclick="switchAdminTab('packages')" class="py-2 px-3 rounded-xl text-xs font-extrabold transition-all cursor-pointer text-slate-400 hover:text-white">
-          تعديل الباقات (<span id="adminPkgCount">11</span>)
-        </button>
-      </div>
-
-      <!-- TAB 1: PROFILE FORM -->
-      <form id="editCardForm" onsubmit="saveCardSettings(event)" class="space-y-3 text-right overflow-y-auto pr-1 flex-1">
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">الاسم / العنوان الرئيسي</label>
-          <input type="text" id="inputName" required class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white outline-none" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">الوصف الفرعي</label>
-          <input type="text" id="inputTitle" required class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white outline-none" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">مواعيد التفعيل</label>
-          <input type="text" id="inputBranch" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white outline-none" />
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">رقم الاتصال المباشر</label>
-            <input type="tel" id="inputPhone" required dir="ltr" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white text-right outline-none" />
-          </div>
-          <div>
-            <label class="block text-xs font-bold text-slate-300 mb-1">رقم الواتساب (بكود الدولة)</label>
-            <input type="tel" id="inputWhatsapp" required dir="ltr" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white text-right outline-none" />
-          </div>
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">رابط الصفحة لكود QR (اختياري)</label>
-          <input type="url" id="inputCustomUrl" dir="ltr" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white text-left font-mono outline-none" placeholder="https://your-site.com" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">رابط اللوجو / الصورة الشخصية (اختياري)</label>
-          <input type="url" id="inputAvatarUrl" dir="ltr" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-sm text-white text-right outline-none" placeholder="https://example.com/logo.png" />
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-slate-300 mb-1">نبذة مختصرة</label>
-          <textarea id="inputBio" rows="2" class="w-full rounded-xl bg-baseDark border border-white/15 focus:border-goldAccent px-3.5 py-2 text-xs text-white outline-none"></textarea>
-        </div>
-        <div>
-          <label class="block text-xs font-bold text-goldSoft mb-1"><i class="fa-solid fa-key text-goldAccent ml-1"></i>كلمة مرور الأدمن (لتغيير الباسورد)</label>
-          <input type="text" id="inputAdminPassword" required dir="ltr" class="w-full rounded-xl bg-baseDark border border-goldAccent/30 focus:border-goldAccent px-3.5 py-2 text-sm text-white text-right font-mono outline-none" />
-        </div>
-
-        <div class="flex items-center justify-between gap-2 pt-2 border-t border-white/10">
-          <button type="button" onclick="resetDefaultSettings()" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-bold text-slate-300 cursor-pointer">
-            استعادة الافتراضي
-          </button>
-          <button type="submit" class="btn-gold px-5 py-2 rounded-xl text-xs font-black cursor-pointer">
-            حفظ البيانات
-          </button>
-        </div>
-      </form>
-
-      <!-- TAB 2: PACKAGES MANAGER -->
-      <div id="adminPackagesPanel" class="hidden flex-col overflow-y-auto pr-1 flex-1 space-y-3">
-        <div class="p-3 rounded-2xl bg-baseDark border border-white/10 space-y-2">
-          <span class="text-xs font-extrabold text-goldSoft block">+ إضافة باقة جديدة</span>
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-            <input type="number" id="newPkgPrice" placeholder="السعر" class="rounded-xl bg-white/5 border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none" />
-            <input type="text" id="newPkgQuota" placeholder="مثال: 120 جيجا" class="rounded-xl bg-white/5 border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none" />
-            <input type="text" id="newPkgMinutes" placeholder="مثال: 2200 دقيقة" class="rounded-xl bg-white/5 border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none" />
-            <select id="newPkgTier" class="rounded-xl bg-cardElevated border border-white/15 px-2 py-1.5 text-xs text-white outline-none">
-              <option value="starter">التوفير</option>
-              <option value="mid">المتوسطة</option>
-              <option value="royal">الملكية</option>
-            </select>
-          </div>
-          <div class="flex items-center gap-2">
-            <input type="text" id="newPkgBadge" placeholder="شارة (اختياري)" class="flex-1 rounded-xl bg-white/5 border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none" />
-            <button type="button" onclick="addNewPackage()" class="btn-gold px-3.5 py-1.5 rounded-xl text-xs font-black cursor-pointer">
-              إضافة
+          <span class="text-[11px] font-bold text-slate-300 block mb-1.5">1. حجم الاستهلاك الشهري للإنترنت:</span>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" onclick="setAdvisorParam('devices', 'low', this)" class="advisor-btn active-opt py-2 px-2 rounded-xl border border-goldPrimary bg-wePurple/50 text-white text-[11px] font-bold transition-all cursor-pointer">
+              اقتصادي (10-30G)
+            </button>
+            <button type="button" onclick="setAdvisorParam('devices', 'mid', this)" class="advisor-btn py-2 px-2 rounded-xl border border-white/10 bg-white/5 text-slate-300 text-[11px] font-bold transition-all cursor-pointer">
+              متوسط (40-60G)
+            </button>
+            <button type="button" onclick="setAdvisorParam('devices', 'high', this)" class="advisor-btn py-2 px-2 rounded-xl border border-white/10 bg-white/5 text-slate-300 text-[11px] font-bold transition-all cursor-pointer">
+              مكثف (70-100G)
             </button>
           </div>
         </div>
 
-        <div id="adminPackagesList" class="space-y-2"></div>
+        <div>
+          <span class="text-[11px] font-bold text-slate-300 block mb-1.5">2. طبيعة الاستخدام المفضلة:</span>
+          <div class="grid grid-cols-3 gap-2">
+            <button type="button" onclick="setAdvisorParam('usage', 'browse', this)" class="advisor-btn active-opt py-2 px-2 rounded-xl border border-goldPrimary bg-wePurple/50 text-white text-[11px] font-bold transition-all cursor-pointer">
+              تصفح ومكالمات
+            </button>
+            <button type="button" onclick="setAdvisorParam('usage', 'gaming', this)" class="advisor-btn py-2 px-2 rounded-xl border border-white/10 bg-white/5 text-slate-300 text-[11px] font-bold transition-all cursor-pointer">
+              سوشيال وألعاب
+            </button>
+            <button type="button" onclick="setAdvisorParam('usage', '4k', this)" class="advisor-btn py-2 px-2 rounded-xl border border-white/10 bg-white/5 text-slate-300 text-[11px] font-bold transition-all cursor-pointer">
+              فيديو عالي الجودة
+            </button>
+          </div>
+        </div>
+      </div>
 
-        <div class="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
-          <button type="button" onclick="exportUpdatedHtml()" class="btn-primary-we px-3.5 py-2 rounded-xl text-[11px] font-bold text-white flex items-center gap-1.5 cursor-pointer">
-            <i class="fa-solid fa-code text-goldSoft"></i>
+      <!-- Recommendation Result Box -->
+      <div class="p-3.5 rounded-2xl bg-obsidian/80 border border-goldPrimary/40 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="text-center sm:text-right">
+          <span class="text-[10px] font-bold text-goldPrimary block">الباقة المرشحة لك:</span>
+          <h4 id="recPkgName" class="text-sm sm:text-base font-black text-white">باقة 200 جنيه</h4>
+          <p id="recPkgDetails" class="text-[11px] text-slate-300">1000 دقيقة لكل الشبكات • 10 جيجا لكل المواقع</p>
+        </div>
+        <button type="button" onclick="subscribeRecommended()" class="gold-btn px-4 py-2.5 rounded-xl text-xs font-black flex items-center gap-1.5 shrink-0 cursor-pointer">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>اطلبها الآن</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 3.5 QUICK FAQ ACCORDION (REDUCES REPEATS)  -->
+    <!-- ========================================== -->
+    <section class="luxury-glass rounded-3xl p-5 sm:p-6 mb-6">
+      <div class="flex items-center gap-2.5 mb-3.5">
+        <div class="w-8 h-8 rounded-xl bg-weViolet/25 text-goldLight flex items-center justify-center text-sm">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+        <div>
+          <h3 class="text-sm sm:text-base font-extrabold text-white">أسئلة شائعة قبل الاشتراك</h3>
+          <p class="text-[11px] text-slate-400">إجابات سريعة لأهم استفسارات العملاء</p>
+        </div>
+      </div>
+
+      <div class="space-y-2 text-xs">
+        <details class="group rounded-2xl bg-white/[0.03] border border-white/10 open:border-goldPrimary/40 transition-all">
+          <summary class="flex items-center justify-between p-3 font-bold text-slate-200 cursor-pointer list-none">
+            <span>متى يتم تفعيل الباقة بعد الحجز؟</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-goldPrimary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-3 pb-3 text-[11px] text-slate-300 leading-relaxed border-t border-white/5 pt-2">
+            يتم تنفيذ وتفعيل جميع الباقات بانتظام في دورتين شهرياً: <strong>يوم 1</strong> و<strong>يوم 16</strong> من كل شهر ميلادي، ويُفضل الحجز قبل الموعد بـ 24 ساعة لضمان إدراج رقمك في القائمة.
+          </div>
+        </details>
+
+        <details class="group rounded-2xl bg-white/[0.03] border border-white/10 open:border-goldPrimary/40 transition-all">
+          <summary class="flex items-center justify-between p-3 font-bold text-slate-200 cursor-pointer list-none">
+            <span>ما هي خطوات الاشتراك وطريقة الدفع؟</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-goldPrimary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-3 pb-3 text-[11px] text-slate-300 leading-relaxed border-t border-white/5 pt-2">
+            اختر الباقة المناسبة واضغط <strong>"اشترك في الباقة"</strong> للتواصل عبر الواتساب، ثم أرسل رقم الخط المراد التفعيل عليه وصورة إيصال التحويل (فودافون كاش أو إنستاباي).
+          </div>
+        </details>
+
+        <details class="group rounded-2xl bg-white/[0.03] border border-white/10 open:border-goldPrimary/40 transition-all">
+          <summary class="flex items-center justify-between p-3 font-bold text-slate-200 cursor-pointer list-none">
+            <span>هل الجيجات والدقائق صالحة لكل الاستخدامات؟</span>
+            <i class="fa-solid fa-chevron-down text-[10px] text-goldPrimary group-open:rotate-180 transition-transform"></i>
+          </summary>
+          <div class="px-3 pb-3 text-[11px] text-slate-300 leading-relaxed border-t border-white/5 pt-2">
+            نعم، الميجابايتس صالحة لجميع المواقع والتطبيقات بدون قيود، والدقائق متاحة لجميع الشبكات في مصر طوال فترة صلاحية الباقة (30 يوماً).
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- 4. FOOTER & QUICK SHARE                    -->
+    <!-- ========================================== -->
+    <footer class="text-center text-xs text-slate-400 space-y-3 pb-4">
+      <div class="flex items-center justify-center gap-2.5 flex-wrap">
+        <button type="button" onclick="shareCardNative()" class="gold-btn px-4 py-2 rounded-full text-xs font-extrabold flex items-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-paper-plane"></i>
+          <span>مشاركة الكارت</span>
+        </button>
+        <button type="button" onclick="copyCardLink(this)" class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-semibold flex items-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-link text-goldPrimary"></i>
+          <span>نسخ الرابط</span>
+        </button>
+        <button type="button" onclick="openQrModal()" class="px-4 py-2 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 font-semibold flex items-center gap-2 transition-all cursor-pointer">
+          <i class="fa-solid fa-qrcode text-goldPrimary"></i>
+          <span>QR</span>
+        </button>
+      </div>
+      <p class="text-[11px] text-slate-500">
+        كارت أعمال رقمي تفاعلي • عروض وباقات WE الحصرية
+      </p>
+    </footer>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- ADMIN PASSWORD PROMPT MODAL                -->
+  <!-- ========================================== -->
+  <div id="adminAuthModal" onclick="if(event.target === this) closeAdminAuthModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="luxury-glass rounded-3xl max-w-xs w-full p-6 text-center relative border border-goldPrimary/60">
+      <button type="button" onclick="closeAdminAuthModal()" class="absolute top-3.5 left-3.5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="w-12 h-12 rounded-2xl bg-goldPrimary/15 text-goldPrimary flex items-center justify-center mx-auto mb-3 text-xl">
+        <i class="fa-solid fa-shield-halved"></i>
+      </div>
+      <h3 class="text-base font-black text-white mb-1">دخول لوحة الأدمن</h3>
+      <p class="text-[11px] text-slate-300 mb-4">أدخل كلمة المرور للتحكم في الكارت والباقات</p>
+      <form onsubmit="verifyAdminPassword(event)" class="space-y-3">
+        <input type="password" id="adminPasswordInput" required dir="ltr" placeholder="••••••••" class="w-full rounded-xl bg-obsidian/90 border border-white/20 focus:border-goldPrimary px-3.5 py-2.5 text-center text-sm text-white tracking-widest outline-none" />
+        <button type="submit" class="gold-btn w-full py-2.5 rounded-xl text-xs font-black cursor-pointer">
+          دخول الآن
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- POPUP MODAL: INTERACTIVE PACKAGES VIEWER   -->
+  <!-- ========================================== -->
+  <div id="packagesModal" onclick="if(event.target === this) closePackagesModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5">
+    <div class="luxury-glass rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col border border-goldPrimary/50 overflow-hidden">
+      <!-- Modal Top Header -->
+      <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between gap-2 bg-[#120A24]/90">
+        <div>
+          <span class="text-[10px] font-bold text-goldPrimary block">عروض WE الحصرية مع المهندس</span>
+          <h3 id="modalTierHeading" class="text-base sm:text-lg font-black text-white">جميع باقات وعروض المهندس</h3>
+        </div>
+        <button type="button" onclick="closePackagesModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer shrink-0">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Quick Filter Tabs inside Popup -->
+      <div class="px-4 py-2.5 bg-obsidian/70 border-b border-white/10 flex items-center gap-1.5 overflow-x-auto">
+        <button type="button" data-tier="all" onclick="selectTier('all')" class="tier-tab-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer">
+          الكل
+        </button>
+        <button type="button" data-tier="starter" onclick="selectTier('starter')" class="tier-tab-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer">
+          التوفير (10-20G)
+        </button>
+        <button type="button" data-tier="mid" onclick="selectTier('mid')" class="tier-tab-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer">
+          المتوسطة (30-60G)
+        </button>
+        <button type="button" data-tier="royal" onclick="selectTier('royal')" class="tier-tab-btn px-3 py-1.5 rounded-full text-xs font-bold whitespace-nowrap transition-all cursor-pointer">
+          الملكية (70-100G)
+        </button>
+      </div>
+
+      <!-- Scrollable Packages Grid -->
+      <div id="packagesGrid" class="p-4 sm:p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+        <!-- Populated dynamically by renderPackages() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- POPUP MODAL: QR CODE SHOWCASE              -->
+  <!-- ========================================== -->
+  <div id="qrModal" onclick="if(event.target === this) closeQrModal()" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="luxury-glass rounded-3xl max-w-xs w-full p-6 text-center relative border border-goldPrimary/60">
+      <button type="button" onclick="closeQrModal()" class="absolute top-3.5 left-3.5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="text-[10px] font-bold text-goldPrimary uppercase tracking-wider">امسح الكود بالكاميرا</span>
+      <h3 id="qrAgentName" class="text-base font-black text-white mt-0.5 mb-4">عروض وي مع المهندس</h3>
+
+      <div class="bg-white p-3.5 rounded-2xl inline-block shadow-xl mx-auto mb-4">
+        <div id="modalQrContainer" class="flex items-center justify-center"></div>
+      </div>
+
+      <p class="text-[11px] text-slate-300 mb-4 leading-relaxed">
+        وجّه كاميرا الهاتف نحو الكود لفتح الكارت الرقمي وحفظ البيانات مباشرة
+      </p>
+
+      <button type="button" onclick="copyCardLink()" class="gold-btn w-full py-2.5 rounded-xl text-xs font-black flex items-center justify-center gap-2 cursor-pointer">
+        <i class="fa-solid fa-copy"></i>
+        <span>نسخ رابط الكارت للمشاركة</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- ADMIN MODAL: PROFILE & PACKAGES EDITOR     -->
+  <!-- ========================================== -->
+  <div id="editModal" onclick="if(event.target === this) closeEditModal()" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-3 sm:p-5">
+    <div class="luxury-glass rounded-3xl max-w-xl w-full max-h-[92vh] flex flex-col border border-goldPrimary/60 overflow-hidden">
+      <!-- Header -->
+      <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-[#120A24]">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-sliders text-goldPrimary"></i>
+          <h3 class="text-base font-black text-white">لوحة تحكم الأدمن</h3>
+        </div>
+        <button type="button" onclick="closeEditModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center cursor-pointer">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Admin Tabs -->
+      <div class="grid grid-cols-2 border-b border-white/10 bg-obsidian/80 text-xs font-extrabold">
+        <button type="button" id="adminTabProfileBtn" onclick="switchAdminTab('profile')" class="py-3 text-goldPrimary border-b-2 border-goldPrimary transition-all cursor-pointer">
+          <i class="fa-solid fa-id-card ml-1"></i>بيانات الكارت والتواجد
+        </button>
+        <button type="button" id="adminTabPackagesBtn" onclick="switchAdminTab('packages')" class="py-3 text-slate-400 border-b-2 border-transparent hover:text-white transition-all cursor-pointer">
+          <i class="fa-solid fa-cubes ml-1"></i>إدارة الباقات والأسعار
+        </button>
+      </div>
+
+      <!-- Tab 1: Profile & Smart Availability Form -->
+      <form id="adminProfileForm" onsubmit="saveCardSettings(event)" class="p-4 sm:p-5 overflow-y-auto space-y-3.5 text-right">
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">اسم العلامة / العنوان الرئيسي</label>
+          <input type="text" id="inputName" required class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">الوصف الوظيفي المختصر</label>
+          <input type="text" id="inputTitle" required class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">شريط مواعيد التفعيل</label>
+          <input type="text" id="inputBranch" required class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white outline-none" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-goldLight mb-1">رقم الاتصال المباشر</label>
+            <input type="tel" id="inputPhone" required dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-right outline-none" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-goldLight mb-1">رقم الواتساب (بكود الدولة)</label>
+            <input type="tel" id="inputWhatsapp" required dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-right outline-none" />
+          </div>
+        </div>
+
+        <!-- Payment Transfer Info -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-goldLight mb-1">وسيلة التحويل</label>
+            <input type="text" id="inputPaymentMethod" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white outline-none" placeholder="فودافون كاش / إنستاباي" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-goldLight mb-1">رقم التحويل للنسخ السريع (اتركه فارغاً لإخفائه)</label>
+            <input type="tel" id="inputPaymentNumber" dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-right font-mono outline-none" />
+          </div>
+        </div>
+
+        <!-- Smart Availability Status Controls -->
+        <div class="p-3 rounded-2xl bg-obsidian/70 border border-goldPrimary/30 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-extrabold text-goldLight"><i class="fa-solid fa-signal ml-1"></i>حالة التواجد والرد الفوري</span>
+            <span class="text-[10px] text-slate-400">بتوقيت القاهرة</span>
+          </div>
+          <select id="inputAvailabilityMode" onchange="toggleScheduleInputs()" class="w-full rounded-xl bg-[#160D2B] border border-white/15 focus:border-goldPrimary px-3 py-2 text-xs text-white outline-none">
+            <option value="auto">تلقائي حسب ساعات العمل اليومية (موصى به)</option>
+            <option value="online">متاح دائماً (شارة خضراء)</option>
+            <option value="offline">غير متاح حالياً / إجازة (شارة كهرمانية)</option>
+          </select>
+          <div id="scheduleHoursRow" class="grid grid-cols-2 gap-2.5">
+            <div>
+              <label class="block text-[10px] text-slate-300 mb-1">بداية العمل</label>
+              <select id="inputStartHour" class="w-full rounded-xl bg-obsidian border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none"></select>
+            </div>
+            <div>
+              <label class="block text-[10px] text-slate-300 mb-1">نهاية العمل</label>
+              <select id="inputEndHour" class="w-full rounded-xl bg-obsidian border border-white/15 px-2.5 py-1.5 text-xs text-white outline-none"></select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-[10px] text-slate-300 mb-1">نص الشارة عند عدم التواجد</label>
+            <input type="text" id="inputOfflineText" class="w-full rounded-xl bg-obsidian border border-white/15 px-3 py-1.5 text-xs text-white outline-none" placeholder="خارج أوقات العمل • اترك رسالة واتساب" />
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">كلمة مرور لوحة الأدمن</label>
+          <input type="text" id="inputAdminPassword" required dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-left font-mono outline-none" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">رابط الصفحة المخصص لكود QR (اختياري)</label>
+          <input type="url" id="inputCustomUrl" dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-left font-mono outline-none" placeholder="https://your-site.com" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">رابط اللوجو / الصورة الشخصية (اختياري)</label>
+          <input type="url" id="inputAvatarUrl" dir="ltr" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-sm text-white text-right outline-none" placeholder="https://example.com/logo.png" />
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-goldLight mb-1">نبذة ترحيبية للعملاء</label>
+          <textarea id="inputBio" rows="2" class="w-full rounded-xl bg-obsidian/80 border border-white/15 focus:border-goldPrimary px-3.5 py-2 text-xs text-white outline-none leading-relaxed"></textarea>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-white/10">
+          <button type="button" onclick="resetDefaultSettings()" class="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-bold text-slate-300 cursor-pointer">
+            استعادة الافتراضي
+          </button>
+          <button type="submit" class="gold-btn px-5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-floppy-disk"></i>
+            <span>حفظ البيانات</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Tab 2: Packages Manager -->
+      <div id="adminPackagesPanel" class="hidden p-4 sm:p-5 overflow-y-auto space-y-3">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-slate-300">عدّل الأسعار أو الجيجات أو أضف باقة جديدة:</span>
+          <button type="button" onclick="addNewPackageRow()" class="px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1 cursor-pointer">
+            <i class="fa-solid fa-plus"></i>
+            <span>إضافة باقة</span>
+          </button>
+        </div>
+
+        <div id="adminPackagesList" class="space-y-2.5 max-h-[46vh] overflow-y-auto pr-1">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2">
+          <button type="button" onclick="exportPublishableHtml()" class="px-3.5 py-2 rounded-xl bg-weViolet/30 hover:bg-weViolet/50 border border-weViolet text-white text-xs font-bold flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-code"></i>
             <span>نسخ الكود النهائي للنشر</span>
           </button>
-          <button type="button" onclick="saveAdminPackages()" class="btn-gold px-5 py-2 rounded-xl text-xs font-black cursor-pointer">
-            حفظ الباقات
+          <button type="button" onclick="savePackagesFromAdmin()" class="gold-btn px-5 py-2 rounded-xl text-xs font-black flex items-center gap-1.5 cursor-pointer">
+            <i class="fa-solid fa-check"></i>
+            <span>حفظ الباقات</span>
           </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- JAVASCRIPT LOGIC                           -->
-  <!-- ========================================== -->
   <script>
-    const defaultAdminPassword = '0155555';
-    let currentAdminPassword = defaultAdminPassword;
-
+    // 1. Default Agent Profile Data
     const defaultProfile = {
       name: 'عروض وي مع المهندس',
-      title: 'خدمات المهندس — باقات وعروض WE الحصرية',
-      branch: 'تفعيل الباقات يوم 1 و 16 من كل شهر',
+      title: 'خدمات المهندس — باقات وعروض WE الحصرية (دقائق وميجابايتس)',
+      branch: 'تفعيل الباقات يوم 1 و 16 من كل شهر — خدمة عملاء VIP',
       phone: '01550001111',
       whatsapp: '201550001111',
+      paymentMethod: 'فودافون كاش / إنستاباي',
+      paymentNumber: '01550001111',
+      availabilityMode: 'auto',
+      startHour: 10,
+      endHour: 24,
+      offlineText: 'خارج أوقات العمل • اترك رسالة واتساب',
+      adminPassword: '0155555',
       customPageUrl: '',
       avatarUrl: '',
-      bio: 'دقائق لكل الشبكات وميجابايتس لكل المواقع بأسعار تنافسية وتفعيل فوري في المواعيد المحددة.'
+      bio: 'أقوى باقات وعروض WE الحصرية مع المهندس: دقائق لكل الشبكات وميجابايتس لكل المواقع بأسعار تنافسية وتفعيل فوري في المواعيد المحددة.'
     };
 
     let currentProfile = { ...defaultProfile };
+    let activeTier = 'all';
 
-    // Complete 11 Packages Catalog (10GB to 100GB)
+    const tierTitles = {
+      all: 'جميع باقات وعروض المهندس (10 - 100 جيجا)',
+      starter: 'باقات التوفير (10 - 20 جيجا)',
+      mid: 'الباقات المتوسطة (30 - 60 جيجا)',
+      royal: 'الباقات الملكية (70 - 100 جيجا)'
+    };
+
+    const advisorState = {
+      devices: 'low',
+      usage: 'browse',
+      recommendedText: 'باقة 200 جنيه (1000 دقيقة لكل الشبكات • 10 جيجا لكل المواقع)'
+    };
+
+    // 2. Engineer Exclusive WE Offers Catalog (Default 11 Packages with 790 & 880)
     const defaultPackagesData = [
-      { id: 'pkg-200', tier: 'starter', name: 'باقة 200 جنيه', price: 200, minutes: '1000 دقيقة', quota: '10 جيجا', badge: 'بداية التوفير', highlight: false },
-      { id: 'pkg-240', tier: 'starter', name: 'باقة 240 جنيه', price: 240, minutes: '1100 دقيقة', quota: '15 جيجا', badge: '', highlight: false },
-      { id: 'pkg-290', tier: 'starter', name: 'باقة 290 جنيه', price: 290, minutes: '1200 دقيقة', quota: '20 جيجا', badge: 'الأكثر طلباً', highlight: true },
-      { id: 'pkg-370', tier: 'mid', name: 'باقة 370 جنيه', price: 370, minutes: '1300 دقيقة', quota: '30 جيجا', badge: '', highlight: false },
-      { id: 'pkg-430', tier: 'mid', name: 'باقة 430 جنيه', price: 430, minutes: '1400 دقيقة', quota: '40 جيجا', badge: 'قيمة ممتازة', highlight: true },
-      { id: 'pkg-500', tier: 'mid', name: 'باقة 500 جنيه', price: 500, minutes: '1500 دقيقة', quota: '50 جيجا', badge: '', highlight: false },
-      { id: 'pkg-590', tier: 'mid', name: 'باقة 590 جنيه', price: 590, minutes: '1600 دقيقة', quota: '60 جيجا', badge: 'باقة العائلة', highlight: false },
-      { id: 'pkg-680', tier: 'royal', name: 'باقة 680 جنيه', price: 680, minutes: '1700 دقيقة', quota: '70 جيجا', badge: '', highlight: false },
-      { id: 'pkg-790', tier: 'royal', name: 'باقة 790 جنيه', price: 790, minutes: '1800 دقيقة', quota: '80 جيجا', badge: 'سوبر VIP', highlight: true },
-      { id: 'pkg-880', tier: 'royal', name: 'باقة 880 جنيه', price: 880, minutes: '1900 دقيقة', quota: '90 جيجا', badge: '', highlight: false },
-      { id: 'pkg-950', tier: 'royal', name: 'باقة 950 جنيه', price: 950, minutes: '2000 دقيقة', quota: '100 جيجا', badge: 'الباقة الملكية', highlight: true }
+      {
+        id: 'pkg-200',
+        tier: 'starter',
+        name: 'باقة 200 جنيه',
+        price: 200,
+        minutes: '1000 دقيقة',
+        quota: '10 جيجا',
+        badge: 'بداية التوفير',
+        highlight: false
+      },
+      {
+        id: 'pkg-260',
+        tier: 'starter',
+        name: 'باقة 260 جنيه',
+        price: 260,
+        minutes: '1100 دقيقة',
+        quota: '15 جيجا',
+        badge: 'اقتصادية مميزة',
+        highlight: false
+      },
+      {
+        id: 'pkg-310',
+        tier: 'starter',
+        name: 'باقة 310 جنيه',
+        price: 310,
+        minutes: '1200 دقيقة',
+        quota: '20 جيجا',
+        badge: 'الأكثر اختياراً للتوفير',
+        highlight: true
+      },
+      {
+        id: 'pkg-400',
+        tier: 'mid',
+        name: 'باقة 400 جنيه',
+        price: 400,
+        minutes: '1400 دقيقة',
+        quota: '30 جيجا',
+        badge: 'توازن مثالي',
+        highlight: false
+      },
+      {
+        id: 'pkg-490',
+        tier: 'mid',
+        name: 'باقة 490 جنيه',
+        price: 490,
+        minutes: '1500 دقيقة',
+        quota: '40 جيجا',
+        badge: 'أداء قوي',
+        highlight: false
+      },
+      {
+        id: 'pkg-570',
+        tier: 'mid',
+        name: 'باقة 570 جنيه',
+        price: 570,
+        minutes: '1600 دقيقة',
+        quota: '50 جيجا',
+        badge: 'الأكثر طلباً',
+        highlight: true
+      },
+      {
+        id: 'pkg-640',
+        tier: 'mid',
+        name: 'باقة 640 جنيه',
+        price: 640,
+        minutes: '1600 دقيقة',
+        quota: '60 جيجا',
+        badge: 'قيمة مضاعفة',
+        highlight: false
+      },
+      {
+        id: 'pkg-710',
+        tier: 'royal',
+        name: 'باقة 710 جنيه',
+        price: 710,
+        minutes: '1700 دقيقة',
+        quota: '70 جيجا',
+        badge: 'فئة VIP',
+        highlight: false
+      },
+      {
+        id: 'pkg-790',
+        tier: 'royal',
+        name: 'باقة 790 جنيه',
+        price: 790,
+        minutes: '1800 دقيقة',
+        quota: '80 جيجا',
+        badge: 'باقة سوبر VIP',
+        highlight: true
+      },
+      {
+        id: 'pkg-880',
+        tier: 'royal',
+        name: 'باقة 880 جنيه',
+        price: 880,
+        minutes: '1900 دقيقة',
+        quota: '90 جيجا',
+        badge: 'باقة النخبة',
+        highlight: false
+      },
+      {
+        id: 'pkg-950',
+        tier: 'royal',
+        name: 'باقة 950 جنيه',
+        price: 950,
+        minutes: '2000 دقيقة',
+        quota: '100 جيجا',
+        badge: 'الباقة الملكية 100G',
+        highlight: true
+      }
     ];
 
     let packagesData = JSON.parse(JSON.stringify(defaultPackagesData));
-    let activeTier = 'starter';
-    const tierTitles = {
-      all: 'جميع الباقات (10 - 100 جيجا)',
-      starter: 'باقات التوفير (10 - 20 جيجا)',
-      mid: 'الباقات المتوسطة (30 - 60 جيجا)',
-      royal: 'الباقات الملكية VIP (70 - 100 جيجا)'
-    };
 
-    let advisorState = {
-      devices: 'low',
-      usage: 'browse',
-      recommendedText: 'باقة 200 جنيه (1000 دقيقة • 10 جيجا)'
-    };
+    // Populate 24h Select Options in Admin Modal
+    function populateHourSelects() {
+      const startSel = document.getElementById('inputStartHour');
+      const endSel = document.getElementById('inputEndHour');
+      if (!startSel || !endSel) return;
 
-    function loadProfileFromStorage() {
-      try {
-        const savedPass = localStorage.getItem('we_luxury_admin_pass');
-        if (savedPass && savedPass.trim() !== '') currentAdminPassword = savedPass.trim();
-        const saved = localStorage.getItem('we_luxury_card_profile');
-        if (saved) currentProfile = { ...defaultProfile, ...JSON.parse(saved) };
-        const savedPkgs = localStorage.getItem('we_luxury_card_packages');
-        if (savedPkgs) {
-          const parsed = JSON.parse(savedPkgs);
-          if (Array.isArray(parsed) && parsed.length > 0) packagesData = parsed;
-        }
-      } catch (e) {}
-      applyProfileToUI();
-      updatePackageCounters();
+      const formatHourLabel = (h) => {
+        if (h === 0) return '12:00 منتصف الليل (بداية اليوم)';
+        if (h === 24) return '12:00 منتصف الليل (نهاية اليوم)';
+        if (h === 12) return '12:00 ظهراً';
+        return h < 12 ? `${h}:00 صباحاً` : `${h - 12}:00 مساءً`;
+      };
+
+      startSel.innerHTML = Array.from({ length: 24 }, (_, h) =>
+        `<option value="${h}">${formatHourLabel(h)}</option>`
+      ).join('');
+
+      endSel.innerHTML = Array.from({ length: 24 }, (_, i) => {
+        const h = i + 1;
+        return `<option value="${h}">${formatHourLabel(h)}</option>`;
+      }).join('');
     }
 
-    function updatePackageCounters() {
-      const allTab = document.getElementById('tab-all');
-      if (allTab) allTab.textContent = `الكل (${packagesData.length})`;
-      const badgeCount = document.getElementById('totalPackagesBadge');
-      if (badgeCount) badgeCount.textContent = `${packagesData.length} باقة`;
-      const adminCount = document.getElementById('adminPkgCount');
-      if (adminCount) adminCount.textContent = packagesData.length;
-    }
-
-    function applyProfileToUI() {
-      document.getElementById('displayName').textContent = currentProfile.name;
-      document.getElementById('displayTitle').textContent = currentProfile.title;
-      document.getElementById('displayBranch').textContent = currentProfile.branch;
-      document.getElementById('displayBio').textContent = currentProfile.bio;
-      document.getElementById('qrAgentName').textContent = currentProfile.name;
-
-      const cleanPhone = currentProfile.phone.replace(/\s+/g, '');
-      const cleanWa = currentProfile.whatsapp.replace(/[^0-9]/g, '');
-      document.getElementById('callLink').href = `tel:${cleanPhone}`;
-
-      const defaultWaMsg = encodeURIComponent(`أهلاً أستاذ ${currentProfile.name}، تواصلت معك بخصوص باقات وعروض WE.`);
-      document.getElementById('whatsappLink').href = `https://wa.me/${cleanWa}?text=${defaultWaMsg}`;
-
-      const imgEl = document.getElementById('profileImage');
-      const initEl = document.getElementById('profileInitials');
-      if (currentProfile.avatarUrl && currentProfile.avatarUrl.trim() !== '') {
-        imgEl.src = currentProfile.avatarUrl.trim();
-        imgEl.classList.remove('hidden');
-        initEl.classList.add('hidden');
-      } else {
-        imgEl.classList.add('hidden');
-        initEl.classList.remove('hidden');
+    function toggleScheduleInputs() {
+      const mode = document.getElementById('inputAvailabilityMode').value;
+      const row = document.getElementById('scheduleHoursRow');
+      if (row) {
+        row.style.opacity = mode === 'auto' ? '1' : '0.45';
+        row.style.pointerEvents = mode === 'auto' ? 'auto' : 'none';
       }
-      renderInlineQrCode();
     }
 
-    // Packages Popup Modal Controls
-    function openPackagesModal(tier = 'starter') {
+    // Evaluate Cairo Time Availability Badge & Cycle Countdown
+    function updateSmartStatusIndicators() {
+      let cairoHour = new Date().getHours();
+      let cairoDay = new Date().getDate();
+      let cairoMonth = new Date().getMonth();
+      let cairoYear = new Date().getFullYear();
+
+      try {
+        const cairoNow = new Date(new Date().toLocaleString('en-US', { timeZone: 'Africa/Cairo' }));
+        cairoHour = cairoNow.getHours();
+        cairoDay = cairoNow.getDate();
+        cairoMonth = cairoNow.getMonth();
+        cairoYear = cairoNow.getFullYear();
+      } catch (e) {}
+
+      // 1. Availability Badge
+      const badge = document.getElementById('availabilityBadge');
+      const ping = document.getElementById('availabilityPing');
+      const text = document.getElementById('availabilityText');
+
+      let isOnline = true;
+      const mode = currentProfile.availabilityMode || 'auto';
+
+      if (mode === 'online') {
+        isOnline = true;
+      } else if (mode === 'offline') {
+        isOnline = false;
+      } else {
+        const start = Number(currentProfile.startHour ?? 10);
+        const end = Number(currentProfile.endHour ?? 24);
+        if (start < end) {
+          isOnline = cairoHour >= start && cairoHour < end;
+        } else if (start > end) {
+          isOnline = cairoHour >= start || cairoHour < end;
+        } else {
+          isOnline = true;
+        }
+      }
+
+      if (badge && ping && text) {
+        if (isOnline) {
+          badge.className = 'flex items-center gap-1.5 bg-emerald-500/10 border border-emerald-400/30 px-3 py-1.5 rounded-full transition-all duration-300';
+          ping.className = 'w-2 h-2 rounded-full bg-emerald-400 animate-ping';
+          text.className = 'text-[11px] font-bold text-emerald-300';
+          text.textContent = 'متاح للرد الفوري';
+        } else {
+          badge.className = 'flex items-center gap-1.5 bg-amber-500/15 border border-amber-400/40 px-3 py-1.5 rounded-full transition-all duration-300';
+          ping.className = 'w-2 h-2 rounded-full bg-amber-400';
+          text.className = 'text-[11px] font-bold text-amber-200';
+          text.textContent = currentProfile.offlineText || 'خارج أوقات العمل • اترك رسالة';
+        }
+      }
+
+      // 2. Next Cycle Countdown (1st or 16th of Month)
+      const countdownEl = document.getElementById('cycleCountdownText');
+      if (countdownEl) {
+        if (cairoDay === 1 || cairoDay === 16) {
+          countdownEl.textContent = `اليوم موعد التفعيل (يوم ${cairoDay}) — احجز باقتك الآن!`;
+        } else if (cairoDay < 16) {
+          const diff = 16 - cairoDay;
+          countdownEl.textContent = diff === 1
+            ? 'غداً موعد دورة التفعيل القادمة (يوم 16) — بادر بالحجز'
+            : `متبقي ${diff} أيام على دورة التفعيل القادمة (يوم 16)`;
+        } else {
+          const daysInMonth = new Date(cairoYear, cairoMonth + 1, 0).getDate();
+          const diff = (daysInMonth - cairoDay) + 1;
+          countdownEl.textContent = diff === 1
+            ? 'غداً موعد دورة التفعيل القادمة (يوم 1) — بادر بالحجز'
+            : `متبقي ${diff} أيام على دورة التفعيل القادمة (يوم 1)`;
+        }
+      }
+    }
+
+    // Admin Password Modal Controls (Double-Tap Logo)
+    function promptAdminAccess() {
+      const modal = document.getElementById('adminAuthModal');
+      const input = document.getElementById('adminPasswordInput');
+      if (input) input.value = '';
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      setTimeout(() => { if (input) input.focus(); }, 100);
+    }
+
+    function closeAdminAuthModal() {
+      const modal = document.getElementById('adminAuthModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function verifyAdminPassword(e) {
+      e.preventDefault();
+      const entered = document.getElementById('adminPasswordInput').value.trim();
+      const expected = currentProfile.adminPassword || defaultProfile.adminPassword;
+      if (entered === expected) {
+        closeAdminAuthModal();
+        openEditModal();
+      } else {
+        showToast('كلمة المرور غير صحيحة');
+      }
+    }
+
+    // Popup Packages Modal Controls
+    function openPackagesModal(tier = 'all') {
       selectTier(tier);
       const modal = document.getElementById('packagesModal');
       modal.classList.remove('hidden');
@@ -716,163 +975,269 @@
 
     function selectTier(tier) {
       activeTier = tier;
-      const titleEl = document.getElementById('modalPackagesTitle');
-      if (titleEl) titleEl.textContent = tierTitles[tier] || 'الباقات المتاحة';
+      const heading = document.getElementById('modalTierHeading');
+      if (heading) {
+        heading.textContent = tierTitles[tier] || tierTitles.all;
+      }
 
-      document.querySelectorAll('.tier-tab').forEach(btn => {
-        btn.classList.remove('bg-wePurple', 'text-white');
-        btn.classList.add('text-slate-400');
+      document.querySelectorAll('.tier-tab-btn').forEach(btn => {
+        if (btn.dataset.tier === tier) {
+          btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+          btn.classList.add('bg-goldPrimary', 'text-obsidian', 'border-goldPrimary');
+        } else {
+          btn.classList.remove('bg-goldPrimary', 'text-obsidian', 'border-goldPrimary');
+          btn.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+        }
       });
 
-      const activeBtn = document.getElementById(`tab-${tier}`);
-      if (activeBtn) {
-        activeBtn.classList.remove('text-slate-400');
-        activeBtn.classList.add('bg-wePurple', 'text-white');
-      }
       renderPackages();
     }
 
     function renderPackages() {
-      const container = document.getElementById('packagesGrid');
-      const list = activeTier === 'all' ? packagesData : packagesData.filter(pkg => pkg.tier === activeTier);
+      const grid = document.getElementById('packagesGrid');
+      if (!grid) return;
 
-      container.innerHTML = list.map(pkg => {
-        const cardStyle = pkg.highlight
-          ? 'border-goldAccent/70 bg-gradient-to-b from-wePurple/25 to-cardElevated'
-          : 'border-white/10 bg-cardElevated hover:border-goldAccent/40';
+      const filtered = activeTier === 'all'
+        ? packagesData
+        : packagesData.filter(p => p.tier === activeTier);
+
+      const cleanWa = currentProfile.whatsapp.replace(/[^0-9]/g, '');
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-8 text-xs text-slate-400">لا توجد باقات متاحة في هذه الفئة حالياً.</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(pkg => {
+        const waMsg = encodeURIComponent(`أهلاً ${currentProfile.name}، أرغب في الاشتراك في (${pkg.name} - ${pkg.quota} + ${pkg.minutes}) بسعر ${pkg.price} جنيه.`);
+        const waUrl = `https://wa.me/${cleanWa}?text=${waMsg}`;
+        const cardBorder = pkg.highlight
+          ? 'border-goldPrimary/70 bg-gradient-to-b from-wePurple/40 to-obsidian/95 shadow-lg shadow-goldPrimary/10'
+          : 'border-white/10 bg-white/[0.04]';
 
         return `
-          <div class="rounded-2xl p-4 border ${cardStyle} transition-all flex flex-col justify-between">
+          <div class="rounded-2xl p-4 border ${cardBorder} flex flex-col justify-between transition-all hover:border-goldPrimary">
             <div>
               <div class="flex items-center justify-between gap-2 mb-2">
-                <span class="text-xs font-bold text-slate-400">قيمة الباقة</span>
-                ${pkg.badge ? `
-                  <span class="text-[10px] font-extrabold px-2 py-0.5 rounded-full ${pkg.highlight ? 'bg-goldAccent text-baseDark' : 'bg-white/10 text-goldSoft'}">
-                    ${pkg.badge}
-                  </span>
-                ` : ''}
+                <span class="text-[10px] font-extrabold px-2.5 py-0.5 rounded-full ${pkg.highlight ? 'bg-goldPrimary text-obsidian' : 'bg-weViolet/30 text-goldLight border border-weViolet/40'}">
+                  ${pkg.badge || 'عرض WE'}
+                </span>
+                <span class="text-lg font-black gold-gradient-text">${pkg.price} <small class="text-[11px] font-bold">ج.م</small></span>
               </div>
 
-              <div class="flex items-baseline gap-1.5 mb-3">
-                <span class="text-3xl font-black gold-text leading-none">${pkg.price}</span>
-                <span class="text-xs font-bold text-slate-300">جنيه</span>
-              </div>
+              <h4 class="text-base font-black text-white mb-2.5">${pkg.name}</h4>
 
-              <div class="space-y-1.5 mb-4 text-xs border-t border-white/10 pt-3">
+              <div class="space-y-1.5 text-xs text-slate-200 mb-4 bg-black/30 p-2.5 rounded-xl border border-white/5">
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300 font-semibold"><i class="fa-solid fa-globe text-goldAccent ml-1.5"></i>${pkg.quota}</span>
-                  <span class="text-[10px] text-slate-400">لكل المواقع</span>
+                  <span class="text-slate-400"><i class="fa-solid fa-wifi text-goldPrimary ml-1.5"></i>الإنترنت:</span>
+                  <span class="font-extrabold text-white">${pkg.quota} لكل المواقع</span>
                 </div>
                 <div class="flex items-center justify-between">
-                  <span class="text-slate-300 font-semibold"><i class="fa-solid fa-phone text-goldAccent ml-1.5"></i>${pkg.minutes}</span>
-                  <span class="text-[10px] text-slate-400">لكل الشبكات</span>
+                  <span class="text-slate-400"><i class="fa-solid fa-phone text-emerald-400 ml-1.5"></i>المكالمات:</span>
+                  <span class="font-extrabold text-emerald-300">${pkg.minutes} لكل الشبكات</span>
                 </div>
               </div>
             </div>
 
-            <button onclick="orderPackage('${pkg.name}', '${pkg.minutes} لكل الشبكات', '${pkg.quota} لكل المواقع', '${pkg.price} جنيه')" class="w-full py-2.5 px-3 rounded-xl text-xs font-extrabold flex items-center justify-center gap-1.5 cursor-pointer ${pkg.highlight ? 'btn-gold' : 'btn-primary-we text-white'}">
+            <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="${pkg.highlight ? 'gold-btn' : 'we-btn text-white'} w-full py-2.5 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-1.5 transition-all">
               <i class="fa-brands fa-whatsapp text-sm"></i>
-              <span>اشترك الآن</span>
-            </button>
+              <span>اشترك في الباقة</span>
+            </a>
           </div>
         `;
       }).join('');
     }
 
-    function orderPackage(name, minutes, quota, price) {
+    function updatePackageCounters() {
+      const badge = document.getElementById('totalPackagesBadge');
+      if (badge) {
+        badge.textContent = `${packagesData.length} باقة متاحة`;
+      }
+    }
+
+    // Copy Payment Number to Clipboard
+    function copyPaymentNumber() {
+      const num = currentProfile.paymentNumber || currentProfile.phone;
+      const tempInput = document.createElement('input');
+      tempInput.value = num;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast(`تم نسخ رقم التحويل (${num}) بنجاح`);
+      } catch (e) {
+        showToast('تعذر النسخ التلقائي');
+      }
+      document.body.removeChild(tempInput);
+    }
+
+    // Native Web Share with Clipboard Fallback
+    function shareCardNative() {
+      const url = getActivePageUrl();
+      if (navigator.share) {
+        navigator.share({
+          title: currentProfile.name,
+          text: `${currentProfile.name} — ${currentProfile.title}`,
+          url: url
+        }).catch(() => {});
+      } else {
+        copyCardLink();
+      }
+    }
+
+    // Load & Apply Profile Settings + Packages
+    function loadProfileFromStorage() {
+      try {
+        const saved = localStorage.getItem('we_luxury_card_profile');
+        if (saved) {
+          currentProfile = { ...defaultProfile, ...JSON.parse(saved) };
+        }
+        const savedPkgs = localStorage.getItem('we_luxury_card_packages');
+        if (savedPkgs) {
+          const parsedPkgs = JSON.parse(savedPkgs);
+          if (Array.isArray(parsedPkgs) && parsedPkgs.length > 0) {
+            packagesData = parsedPkgs;
+          }
+        }
+      } catch (e) {
+        console.warn('Storage unavailable, using default profile.');
+      }
+      applyProfileToUI();
+      updatePackageCounters();
+    }
+
+    function applyProfileToUI() {
+      document.getElementById('displayName').textContent = currentProfile.name;
+      document.getElementById('displayTitle').textContent = currentProfile.title;
+      document.getElementById('displayBranch').textContent = currentProfile.branch;
+      document.getElementById('displayBio').textContent = currentProfile.bio;
+      document.getElementById('qrAgentName').textContent = currentProfile.name;
+
+      // Update Payment Strip
+      const paymentStrip = document.getElementById('paymentStrip');
+      if (paymentStrip) {
+        if (currentProfile.paymentNumber && currentProfile.paymentNumber.trim() !== '') {
+          paymentStrip.classList.remove('hidden');
+          document.getElementById('displayPaymentMethod').textContent = currentProfile.paymentMethod || 'فودافون كاش / إنستاباي';
+          document.getElementById('displayPaymentNumber').textContent = currentProfile.paymentNumber;
+        } else {
+          paymentStrip.classList.add('hidden');
+        }
+      }
+
+      // Avatar Image vs Default Royal WE Logo
+      const avatarImg = document.getElementById('avatarImage');
+      const avatarSvg = document.getElementById('avatarDefaultSvg');
+      if (currentProfile.avatarUrl && currentProfile.avatarUrl.trim() !== '') {
+        avatarImg.src = currentProfile.avatarUrl;
+        avatarImg.classList.remove('hidden');
+        avatarSvg.classList.add('hidden');
+      } else {
+        avatarImg.classList.add('hidden');
+        avatarSvg.classList.remove('hidden');
+      }
+
+      // Update Action Links
       const cleanWa = currentProfile.whatsapp.replace(/[^0-9]/g, '');
-      const message = `أهلاً بك،\nأرغب في الاشتراك في:\n• ${name}\n• الإنترنت: ${quota}\n• الدقائق: ${minutes}\n• السعر: ${price}\n• التفعيل: يوم 1 أو 16 من الشهر`;
-      window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+      const waGreeting = encodeURIComponent(`أهلاً ${currentProfile.name}، أرغب في الاستفسار والاشتراك في عروض وباقات WE الحصرية.`);
+      document.getElementById('btnWhatsappMain').href = `https://wa.me/${cleanWa}?text=${waGreeting}`;
+      document.getElementById('btnCallMain').href = `tel:${currentProfile.phone}`;
+
+      // Regenerate QR Codes & Smart Status
+      generateQRCodes();
+      updateSmartStatusIndicators();
     }
 
-    // Smart Advisor Logic
-    function setAdvisorDevices(level, el) {
-      advisorState.devices = level;
-      document.querySelectorAll('.advisor-dev-btn').forEach(btn => {
-        btn.classList.remove('border-goldAccent', 'bg-goldAccent/15', 'text-white');
-        btn.classList.add('border-white/10', 'bg-white/[0.03]', 'text-slate-400');
+    // Smart Advisor Recommendation Engine
+    function setAdvisorParam(key, val, btnEl) {
+      advisorState[key] = val;
+      const group = btnEl.parentElement;
+      group.querySelectorAll('.advisor-btn').forEach(b => {
+        b.classList.remove('active-opt', 'border-goldPrimary', 'bg-wePurple/50', 'text-white');
+        b.classList.add('border-white/10', 'bg-white/5', 'text-slate-300');
       });
-      el.classList.remove('border-white/10', 'bg-white/[0.03]', 'text-slate-400');
-      el.classList.add('border-goldAccent', 'bg-goldAccent/15', 'text-white');
-      updateAdvisorRecommendation();
-    }
+      btnEl.classList.remove('border-white/10', 'bg-white/5', 'text-slate-300');
+      btnEl.classList.add('active-opt', 'border-goldPrimary', 'bg-wePurple/50', 'text-white');
 
-    function setAdvisorUsage(type, el) {
-      advisorState.usage = type;
-      document.querySelectorAll('.advisor-use-btn').forEach(btn => {
-        btn.classList.remove('border-goldAccent', 'bg-goldAccent/15', 'text-white');
-        btn.classList.add('border-white/10', 'bg-white/[0.03]', 'text-slate-400');
-      });
-      el.classList.remove('border-white/10', 'bg-white/[0.03]', 'text-slate-400');
-      el.classList.add('border-goldAccent', 'bg-goldAccent/15', 'text-white');
       updateAdvisorRecommendation();
     }
 
     function updateAdvisorRecommendation() {
       const { devices, usage } = advisorState;
-      let recName = 'باقة 240 جنيه';
-      let recDesc = '1100 دقيقة • 15 جيجا';
+      let recName = 'باقة 200 جنيه';
+      let recDesc = '1000 دقيقة لكل الشبكات • 10 جيجا لكل المواقع';
 
-      if (devices === 'low' && usage === 'browse') { recName = 'باقة 200 جنيه'; recDesc = '1000 دقيقة • 10 جيجا'; }
-      else if (devices === 'low' && usage === 'gaming') { recName = 'باقة 240 جنيه'; recDesc = '1100 دقيقة • 15 جيجا'; }
-      else if (devices === 'low' && usage === '4k') { recName = 'باقة 290 جنيه'; recDesc = '1200 دقيقة • 20 جيجا'; }
-      else if (devices === 'mid' && usage === 'browse') { recName = 'باقة 370 جنيه'; recDesc = '1300 دقيقة • 30 جيجا'; }
-      else if (devices === 'mid' && usage === 'gaming') { recName = 'باقة 500 جنيه'; recDesc = '1500 دقيقة • 50 جيجا'; }
-      else if (devices === 'mid' && usage === '4k') { recName = 'باقة 590 جنيه'; recDesc = '1600 دقيقة • 60 جيجا'; }
-      else if (devices === 'high' && usage === 'browse') { recName = 'باقة 680 جنيه'; recDesc = '1700 دقيقة • 70 جيجا'; }
-      else if (devices === 'high' && usage === 'gaming') { recName = 'باقة 790 جنيه'; recDesc = '1800 دقيقة • 80 جيجا'; }
-      else if (devices === 'high' && usage === '4k') { recName = 'باقة 950 جنيه'; recDesc = '2000 دقيقة • 100 جيجا'; }
+      if (devices === 'low' && usage === 'browse') {
+        recName = 'باقة 200 جنيه';
+        recDesc = '1000 دقيقة لكل الشبكات • 10 جيجا لكل المواقع';
+      } else if (devices === 'low' && usage === 'gaming') {
+        recName = 'باقة 310 جنيه';
+        recDesc = '1200 دقيقة لكل الشبكات • 20 جيجا لكل المواقع';
+      } else if (devices === 'low' && usage === '4k') {
+        recName = 'باقة 400 جنيه';
+        recDesc = '1400 دقيقة لكل الشبكات • 30 جيجا لكل المواقع';
+      } else if (devices === 'mid' && usage === 'browse') {
+        recName = 'باقة 490 جنيه';
+        recDesc = '1500 دقيقة لكل الشبكات • 40 جيجا لكل المواقع';
+      } else if (devices === 'mid' && usage === 'gaming') {
+        recName = 'باقة 570 جنيه';
+        recDesc = '1600 دقيقة لكل الشبكات • 50 جيجا لكل المواقع';
+      } else if (devices === 'mid' && usage === '4k') {
+        recName = 'باقة 640 جنيه';
+        recDesc = '1600 دقيقة لكل الشبكات • 60 جيجا لكل المواقع';
+      } else if (devices === 'high' && usage === 'browse') {
+        recName = 'باقة 710 جنيه';
+        recDesc = '1700 دقيقة لكل الشبكات • 70 جيجا لكل المواقع';
+      } else if (devices === 'high' && usage === 'gaming') {
+        recName = 'باقة 790 جنيه';
+        recDesc = '1800 دقيقة لكل الشبكات • 80 جيجا لكل المواقع';
+      } else if (devices === 'high' && usage === '4k') {
+        recName = 'باقة 950 جنيه';
+        recDesc = '2000 دقيقة لكل الشبكات • 100 جيجا لكل المواقع';
+      }
 
       advisorState.recommendedText = `${recName} (${recDesc})`;
       document.getElementById('recPkgName').textContent = recName;
       document.getElementById('recPkgDetails').textContent = recDesc;
     }
 
-    function orderRecommended() {
+    function subscribeRecommended() {
       const cleanWa = currentProfile.whatsapp.replace(/[^0-9]/g, '');
-      const message = `أهلاً بك،\nأرغب في الاشتراك في الباقة المرشحة لي:\n${advisorState.recommendedText}`;
-      window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+      const msg = encodeURIComponent(`أهلاً ${currentProfile.name}، رشح لي المساعد الذكي الاشتراك في: ${advisorState.recommendedText}. أرغب في التفاصيل والتفعيل.`);
+      window.open(`https://wa.me/${cleanWa}?text=${msg}`, '_blank', 'noopener,noreferrer');
     }
 
-    // QR & Sharing Utilities
+    // QR Code Generation & Modal
     function getActivePageUrl() {
       if (currentProfile.customPageUrl && currentProfile.customPageUrl.trim() !== '') {
         return currentProfile.customPageUrl.trim();
       }
-      if (window.location.href && window.location.href.startsWith('http')) {
-        return window.location.href;
-      }
-      return `https://wa.me/${currentProfile.whatsapp.replace(/[^0-9]/g, '')}`;
+      return window.location.href.split('?')[0];
     }
 
-    function renderInlineQrCode() {
-      const container = document.getElementById('inlineQrCode');
-      if (!container) return;
-      container.innerHTML = '';
-      new QRCode(container, {
-        text: getActivePageUrl(),
-        width: 78,
-        height: 78,
-        colorDark: '#09090E',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
-      });
+    function generateQRCodes() {
+      const modalQr = document.getElementById('modalQrContainer');
+      if (!modalQr || typeof QRCode === 'undefined') return;
+      modalQr.innerHTML = '';
+      try {
+        new QRCode(modalQr, {
+          text: getActivePageUrl(),
+          width: 170,
+          height: 170,
+          colorDark: '#09090E',
+          colorLight: '#FFFFFF',
+          correctLevel: QRCode.CorrectLevel.M
+        });
+      } catch (e) {
+        console.warn('QR generation skipped:', e);
+      }
     }
 
     function openQrModal() {
+      generateQRCodes();
       const modal = document.getElementById('qrModal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      const qrContainer = document.getElementById('qrcode');
-      qrContainer.innerHTML = '';
-      new QRCode(qrContainer, {
-        text: getActivePageUrl(),
-        width: 180,
-        height: 180,
-        colorDark: '#09090E',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.H
-      });
     }
 
     function closeQrModal() {
@@ -881,236 +1246,91 @@
       modal.classList.remove('flex');
     }
 
-    function downloadQrPng() {
-      const qrSource = document.querySelector('#qrcode canvas') || document.querySelector('#inlineQrCode canvas');
-      const qrImg = document.querySelector('#qrcode img') || document.querySelector('#inlineQrCode img');
-      let dataUrl = '';
-      if (qrSource) {
-        const exportCanvas = document.createElement('canvas');
-        const padding = 20;
-        exportCanvas.width = qrSource.width + padding * 2;
-        exportCanvas.height = qrSource.height + padding * 2;
-        const ctx = exportCanvas.getContext('2d');
-        ctx.fillStyle = '#ffffff';
-        ctx.fillRect(0, 0, exportCanvas.width, exportCanvas.height);
-        ctx.drawImage(qrSource, padding, padding);
-        dataUrl = exportCanvas.toDataURL('image/png');
-      } else if (qrImg && qrImg.src) {
-        dataUrl = qrImg.src;
+    // Copy Card Link
+    function copyCardLink() {
+      const url = getActivePageUrl();
+      const tempInput = document.createElement('input');
+      tempInput.value = url;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        showToast('تم نسخ رابط الكارت بنجاح');
+      } catch (e) {
+        showToast('تعذر نسخ الرابط');
       }
-      if (dataUrl) {
-        const link = document.createElement('a');
-        link.href = dataUrl;
-        link.download = `WE_QR_${currentProfile.name.replace(/\s+/g, '_')}.png`;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        showToast('تم تحميل صورة QR بنجاح');
-      }
+      document.body.removeChild(tempInput);
     }
 
+    // Download vCard (.vcf)
     function downloadVCard() {
       const vcard = [
         'BEGIN:VCARD',
         'VERSION:3.0',
         `FN:${currentProfile.name}`,
-        'ORG:Telecom Egypt - WE',
+        `ORG:WE VIP Offers`,
         `TITLE:${currentProfile.title}`,
         `TEL;TYPE=CELL,VOICE:${currentProfile.phone}`,
         `URL:${getActivePageUrl()}`,
         'END:VCARD'
       ].join('\n');
+
       const blob = new Blob([vcard], { type: 'text/vcard;charset=utf-8' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = `${currentProfile.name.replace(/\s+/g, '_')}_WE.vcf`;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('تم حفظ جهة الاتصال بنجاح');
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'WE_VIP_Engineer.vcf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast('تم تحميل ملف جهة الاتصال');
     }
 
-    function copyCardLink(btnEl) {
-      const tempInput = document.createElement('input');
-      tempInput.value = getActivePageUrl();
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      try {
-        document.execCommand('copy');
-        showToast('تم نسخ رابط الصفحة بنجاح');
-      } catch (err) {}
-      document.body.removeChild(tempInput);
-    }
-
-    // Admin Editor Functions (?admin=1)
+    // ==========================================
+    // ADMIN EDITOR FUNCTIONS
+    // ==========================================
     function switchAdminTab(tab) {
-      const profileForm = document.getElementById('editCardForm');
+      const profileForm = document.getElementById('adminProfileForm');
       const packagesPanel = document.getElementById('adminPackagesPanel');
       const btnProfile = document.getElementById('adminTabProfileBtn');
       const btnPackages = document.getElementById('adminTabPackagesBtn');
 
-      if (tab === 'packages') {
+      if (tab === 'profile') {
+        profileForm.classList.remove('hidden');
+        packagesPanel.classList.add('hidden');
+        btnProfile.classList.add('text-goldPrimary', 'border-goldPrimary');
+        btnProfile.classList.remove('text-slate-400', 'border-transparent');
+        btnPackages.classList.remove('text-goldPrimary', 'border-goldPrimary');
+        btnPackages.classList.add('text-slate-400', 'border-transparent');
+      } else {
         profileForm.classList.add('hidden');
         packagesPanel.classList.remove('hidden');
-        packagesPanel.classList.add('flex');
-        btnPackages.classList.remove('text-slate-400');
-        btnPackages.classList.add('bg-wePurple', 'text-white');
-        btnProfile.classList.remove('bg-wePurple', 'text-white');
-        btnProfile.classList.add('text-slate-400');
-        renderAdminPackagesList();
-      } else {
-        packagesPanel.classList.add('hidden');
-        packagesPanel.classList.remove('flex');
-        profileForm.classList.remove('hidden');
-        btnProfile.classList.remove('text-slate-400');
-        btnProfile.classList.add('bg-wePurple', 'text-white');
-        btnPackages.classList.remove('bg-wePurple', 'text-white');
-        btnPackages.classList.add('text-slate-400');
-      }
-    }
-
-    function renderAdminPackagesList() {
-      const listEl = document.getElementById('adminPackagesList');
-      if (!listEl) return;
-      listEl.innerHTML = packagesData.map((pkg, idx) => `
-        <div class="p-2.5 rounded-2xl bg-baseDark border border-white/10 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs font-extrabold text-goldSoft">#${idx + 1} — باقة ${pkg.price} جنيه</span>
-            <div class="flex items-center gap-2">
-              <label class="flex items-center gap-1 text-[10px] text-slate-300 cursor-pointer">
-                <input type="checkbox" ${pkg.highlight ? 'checked' : ''} onchange="updateAdminPkgField(${idx}, 'highlight', this.checked)" class="accent-amber-400" />
-                <span>مميزة</span>
-              </label>
-              <button type="button" onclick="deleteAdminPackage(${idx})" class="w-6 h-6 rounded-lg bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white text-[10px] flex items-center justify-center cursor-pointer">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </div>
-          </div>
-          <div class="grid grid-cols-3 gap-1.5">
-            <input type="number" value="${pkg.price}" onchange="updateAdminPkgField(${idx}, 'price', Number(this.value))" class="rounded-lg bg-white/5 border border-white/10 px-2 py-1 text-xs text-white font-bold outline-none" />
-            <input type="text" value="${pkg.quota}" onchange="updateAdminPkgField(${idx}, 'quota', this.value)" class="rounded-lg bg-white/5 border border-white/10 px-2 py-1 text-xs text-white outline-none" />
-            <input type="text" value="${pkg.minutes}" onchange="updateAdminPkgField(${idx}, 'minutes', this.value)" class="rounded-lg bg-white/5 border border-white/10 px-2 py-1 text-xs text-white outline-none" />
-          </div>
-          <div class="grid grid-cols-2 gap-1.5">
-            <select onchange="updateAdminPkgField(${idx}, 'tier', this.value)" class="rounded-lg bg-cardElevated border border-white/10 px-2 py-1 text-[11px] text-slate-200 outline-none">
-              <option value="starter" ${pkg.tier === 'starter' ? 'selected' : ''}>التوفير</option>
-              <option value="mid" ${pkg.tier === 'mid' ? 'selected' : ''}>المتوسطة</option>
-              <option value="royal" ${pkg.tier === 'royal' ? 'selected' : ''}>الملكية</option>
-            </select>
-            <input type="text" value="${pkg.badge || ''}" placeholder="شارة" onchange="updateAdminPkgField(${idx}, 'badge', this.value)" class="rounded-lg bg-white/5 border border-white/10 px-2 py-1 text-[11px] text-slate-200 outline-none" />
-          </div>
-        </div>
-      `).join('');
-    }
-
-    function updateAdminPkgField(index, field, value) {
-      if (!packagesData[index]) return;
-      packagesData[index][field] = value;
-      if (field === 'price') packagesData[index].name = `باقة ${value} جنيه`;
-    }
-
-    function addNewPackage() {
-      const priceVal = Number(document.getElementById('newPkgPrice').value);
-      const quotaVal = document.getElementById('newPkgQuota').value.trim();
-      const minutesVal = document.getElementById('newPkgMinutes').value.trim();
-      const tierVal = document.getElementById('newPkgTier').value;
-      const badgeVal = document.getElementById('newPkgBadge').value.trim();
-
-      if (!priceVal || !quotaVal || !minutesVal) {
-        showToast('أدخل السعر والجيجات والدقائق أولاً');
-        return;
-      }
-      packagesData.push({
-        id: 'pkg-' + Date.now(),
-        tier: tierVal,
-        name: `باقة ${priceVal} جنيه`,
-        price: priceVal,
-        minutes: minutesVal,
-        quota: quotaVal,
-        badge: badgeVal,
-        highlight: false
-      });
-      document.getElementById('newPkgPrice').value = '';
-      document.getElementById('newPkgQuota').value = '';
-      document.getElementById('newPkgMinutes').value = '';
-      document.getElementById('newPkgBadge').value = '';
-      updatePackageCounters();
-      renderAdminPackagesList();
-      renderPackages();
-      showToast('تمت إضافة الباقة');
-    }
-
-    function deleteAdminPackage(index) {
-      if (packagesData.length <= 1) return;
-      packagesData.splice(index, 1);
-      updatePackageCounters();
-      renderAdminPackagesList();
-      renderPackages();
-    }
-
-    function saveAdminPackages() {
-      try { localStorage.setItem('we_luxury_card_packages', JSON.stringify(packagesData)); } catch (e) {}
-      updatePackageCounters();
-      renderPackages();
-      closeEditModal();
-      showToast('تم حفظ الباقات بنجاح');
-    }
-
-    function exportUpdatedHtml() {
-      let fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-      fullHtml = fullHtml.replace(/const defaultAdminPassword = '[^']*';/, `const defaultAdminPassword = '${currentAdminPassword.replace(/'/g, "\\'")}';`);
-      fullHtml = fullHtml.replace(/const defaultProfile = \{[\s\S]*?\};/, `const defaultProfile = ${JSON.stringify(currentProfile, null, 2)};`);
-      fullHtml = fullHtml.replace(/const defaultPackagesData = \[[\s\S]*?\];/, `const defaultPackagesData = ${JSON.stringify(packagesData, null, 2)};`);
-      const tempArea = document.createElement('textarea');
-      tempArea.value = fullHtml;
-      document.body.appendChild(tempArea);
-      tempArea.select();
-      try {
-        document.execCommand('copy');
-        showToast('تم نسخ الكود النهائي المحدث للنشر');
-      } catch (e) {}
-      document.body.removeChild(tempArea);
-    }
-
-    function requestAdminAccess() {
-      const modal = document.getElementById('adminPasswordModal');
-      const input = document.getElementById('adminPasswordInput');
-      if (input) input.value = '';
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      setTimeout(() => { if (input) input.focus(); }, 100);
-    }
-
-    function closePasswordModal() {
-      const modal = document.getElementById('adminPasswordModal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    function verifyAdminPassword(e) {
-      e.preventDefault();
-      const entered = document.getElementById('adminPasswordInput').value.trim();
-      if (entered === currentAdminPassword) {
-        closePasswordModal();
-        openEditModal();
-      } else {
-        showToast('كلمة المرور غير صحيحة');
-        document.getElementById('adminPasswordInput').value = '';
+        btnPackages.classList.add('text-goldPrimary', 'border-goldPrimary');
+        btnPackages.classList.remove('text-slate-400', 'border-transparent');
+        btnProfile.classList.remove('text-goldPrimary', 'border-goldPrimary');
+        btnProfile.classList.add('text-slate-400', 'border-transparent');
+        renderAdminPackagesEditor();
       }
     }
 
     function openEditModal() {
+      populateHourSelects();
       document.getElementById('inputName').value = currentProfile.name;
       document.getElementById('inputTitle').value = currentProfile.title;
       document.getElementById('inputBranch').value = currentProfile.branch;
       document.getElementById('inputPhone').value = currentProfile.phone;
       document.getElementById('inputWhatsapp').value = currentProfile.whatsapp;
+      document.getElementById('inputPaymentMethod').value = currentProfile.paymentMethod || '';
+      document.getElementById('inputPaymentNumber').value = currentProfile.paymentNumber || '';
+      document.getElementById('inputAvailabilityMode').value = currentProfile.availabilityMode || 'auto';
+      document.getElementById('inputStartHour').value = String(currentProfile.startHour ?? 10);
+      document.getElementById('inputEndHour').value = String(currentProfile.endHour ?? 24);
+      document.getElementById('inputOfflineText').value = currentProfile.offlineText || '';
+      document.getElementById('inputAdminPassword').value = currentProfile.adminPassword || defaultProfile.adminPassword;
       document.getElementById('inputCustomUrl').value = currentProfile.customPageUrl || '';
       document.getElementById('inputAvatarUrl').value = currentProfile.avatarUrl || '';
       document.getElementById('inputBio').value = currentProfile.bio;
-      document.getElementById('inputAdminPassword').value = currentAdminPassword;
+      toggleScheduleInputs();
+
       switchAdminTab('profile');
       const modal = document.getElementById('editModal');
       modal.classList.remove('hidden');
@@ -1125,89 +1345,189 @@
 
     function saveCardSettings(e) {
       e.preventDefault();
-      const newPass = document.getElementById('inputAdminPassword').value.trim();
-      if (newPass !== '') {
-        currentAdminPassword = newPass;
-      }
       currentProfile = {
         name: document.getElementById('inputName').value.trim() || defaultProfile.name,
         title: document.getElementById('inputTitle').value.trim() || defaultProfile.title,
         branch: document.getElementById('inputBranch').value.trim() || defaultProfile.branch,
         phone: document.getElementById('inputPhone').value.trim() || defaultProfile.phone,
         whatsapp: document.getElementById('inputWhatsapp').value.trim() || defaultProfile.whatsapp,
+        paymentMethod: document.getElementById('inputPaymentMethod').value.trim() || defaultProfile.paymentMethod,
+        paymentNumber: document.getElementById('inputPaymentNumber').value.trim(),
+        availabilityMode: document.getElementById('inputAvailabilityMode').value || 'auto',
+        startHour: Number(document.getElementById('inputStartHour').value ?? 10),
+        endHour: Number(document.getElementById('inputEndHour').value ?? 24),
+        offlineText: document.getElementById('inputOfflineText').value.trim() || defaultProfile.offlineText,
+        adminPassword: document.getElementById('inputAdminPassword').value.trim() || defaultProfile.adminPassword,
         customPageUrl: document.getElementById('inputCustomUrl').value.trim(),
         avatarUrl: document.getElementById('inputAvatarUrl').value.trim(),
         bio: document.getElementById('inputBio').value.trim() || defaultProfile.bio
       };
+
       try {
-        localStorage.setItem('we_luxury_admin_pass', currentAdminPassword);
         localStorage.setItem('we_luxury_card_profile', JSON.stringify(currentProfile));
-      } catch (err) {}
+      } catch (err) {
+        console.warn('Could not save to localStorage');
+      }
+
       applyProfileToUI();
+      renderPackages();
       closeEditModal();
-      showToast('تم حفظ التعديلات وكلمة المرور بنجاح');
+      showToast('تم حفظ وتحديث إعدادات الكارت بنجاح');
     }
 
     function resetDefaultSettings() {
       currentProfile = { ...defaultProfile };
       packagesData = JSON.parse(JSON.stringify(defaultPackagesData));
-      currentAdminPassword = defaultAdminPassword;
       try {
         localStorage.removeItem('we_luxury_card_profile');
         localStorage.removeItem('we_luxury_card_packages');
-        localStorage.removeItem('we_luxury_admin_pass');
       } catch (err) {}
       applyProfileToUI();
       updatePackageCounters();
       renderPackages();
       openEditModal();
-      showToast('تمت استعادة الإعدادات الافتراضية');
+      showToast('تمت استعادة البيانات والباقات الافتراضية');
     }
 
+    // Packages CRUD inside Admin
+    function renderAdminPackagesEditor() {
+      const container = document.getElementById('adminPackagesList');
+      if (!container) return;
+
+      container.innerHTML = packagesData.map((pkg, idx) => `
+        <div class="p-3 rounded-2xl bg-obsidian/90 border border-white/15 space-y-2" data-pkg-idx="${idx}">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-[11px] font-black text-goldPrimary">باقة #${idx + 1}</span>
+            <div class="flex items-center gap-2">
+              <label class="flex items-center gap-1 text-[10px] text-slate-300 cursor-pointer">
+                <input type="checkbox" class="pkg-highlight accent-amber-400" ${pkg.highlight ? 'checked' : ''} />
+                <span>تمييز ذهبي</span>
+              </label>
+              <button type="button" onclick="deleteAdminPackage(${idx})" class="text-rose-400 hover:text-rose-300 text-xs px-1.5 cursor-pointer" title="حذف الباقة">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+            <input type="text" class="pkg-name rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 text-white" value="${pkg.name}" placeholder="اسم الباقة" />
+            <input type="number" class="pkg-price rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 text-white font-mono" value="${pkg.price}" placeholder="السعر" />
+            <select class="pkg-tier col-span-2 sm:col-span-1 rounded-lg bg-[#160D2B] border border-white/10 px-2 py-1.5 text-white">
+              <option value="starter" ${pkg.tier === 'starter' ? 'selected' : ''}>التوفير (10-20G)</option>
+              <option value="mid" ${pkg.tier === 'mid' ? 'selected' : ''}>المتوسطة (30-60G)</option>
+              <option value="royal" ${pkg.tier === 'royal' ? 'selected' : ''}>الملكية (70-100G)</option>
+            </select>
+            <input type="text" class="pkg-quota rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 text-white" value="${pkg.quota}" placeholder="الجيجات" />
+            <input type="text" class="pkg-minutes rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 text-white" value="${pkg.minutes}" placeholder="الدقائق" />
+            <input type="text" class="pkg-badge col-span-2 sm:col-span-1 rounded-lg bg-white/5 border border-white/10 px-2.5 py-1.5 text-white" value="${pkg.badge || ''}" placeholder="الشارة" />
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function addNewPackageRow() {
+      packagesData.push({
+        id: 'pkg-' + Date.now(),
+        tier: 'mid',
+        name: 'باقة جديدة',
+        price: 500,
+        minutes: '1500 دقيقة',
+        quota: '45 جيجا',
+        badge: 'عرض جديد',
+        highlight: false
+      });
+      renderAdminPackagesEditor();
+      const list = document.getElementById('adminPackagesList');
+      if (list) list.scrollTop = list.scrollHeight;
+    }
+
+    function deleteAdminPackage(index) {
+      if (packagesData.length <= 1) {
+        showToast('يجب الإبقاء على باقة واحدة على الأقل');
+        return;
+      }
+      packagesData.splice(index, 1);
+      renderAdminPackagesEditor();
+    }
+
+    function collectPackagesFromEditor() {
+      const rows = document.querySelectorAll('#adminPackagesList > div');
+      const updated = [];
+      rows.forEach((row, i) => {
+        updated.push({
+          id: packagesData[i]?.id || ('pkg-' + i),
+          name: row.querySelector('.pkg-name').value.trim() || 'باقة WE',
+          price: Number(row.querySelector('.pkg-price').value) || 0,
+          tier: row.querySelector('.pkg-tier').value || 'mid',
+          quota: row.querySelector('.pkg-quota').value.trim() || '10 جيجا',
+          minutes: row.querySelector('.pkg-minutes').value.trim() || '1000 دقيقة',
+          badge: row.querySelector('.pkg-badge').value.trim() || 'عرض مميز',
+          highlight: row.querySelector('.pkg-highlight').checked
+        });
+      });
+      return updated;
+    }
+
+    function savePackagesFromAdmin() {
+      packagesData = collectPackagesFromEditor();
+      try {
+        localStorage.setItem('we_luxury_card_packages', JSON.stringify(packagesData));
+      } catch (e) {}
+      updatePackageCounters();
+      renderPackages();
+      closeEditModal();
+      showToast('تم حفظ وتحديث قائمة الباقات بنجاح');
+    }
+
+    // Export Complete Standalone HTML with Baked-in Edits for Deployment
+    function exportPublishableHtml() {
+      if (!document.getElementById('adminPackagesPanel').classList.contains('hidden')) {
+        packagesData = collectPackagesFromEditor();
+      }
+      let fullDoc = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      fullDoc = fullDoc.replace(
+        /const defaultProfile = \{[\s\S]*?\};/,
+        `const defaultProfile = ${JSON.stringify(currentProfile, null, 6)};`
+      );
+      fullDoc = fullDoc.replace(
+        /const defaultPackagesData = \[[\s\S]*?\];/,
+        `const defaultPackagesData = ${JSON.stringify(packagesData, null, 6)};`
+      );
+
+      const tempArea = document.createElement('textarea');
+      tempArea.value = fullDoc;
+      document.body.appendChild(tempArea);
+      tempArea.select();
+      try {
+        document.execCommand('copy');
+        showToast('تم نسخ الكود النهائي بتعديلاتك! الصقه في ملف index.html');
+      } catch (e) {
+        showToast('تعذر النسخ التلقائي');
+      }
+      document.body.removeChild(tempArea);
+    }
+
+    // Custom Non-Blocking Toast Notification
     let toastTimer = null;
     function showToast(msg) {
       const box = document.getElementById('toastBox');
       document.getElementById('toastMessage').textContent = msg;
-      box.classList.remove('opacity-0', '-translate-y-3');
+      box.classList.remove('opacity-0', '-translate-y-4');
       box.classList.add('opacity-100', 'translate-y-0');
+
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => {
         box.classList.remove('opacity-100', 'translate-y-0');
-        box.classList.add('opacity-0', '-translate-y-3');
-      }, 2800);
+        box.classList.add('opacity-0', '-translate-y-4');
+      }, 3000);
     }
 
+    // Initialize Application on Window Load
     window.onload = function () {
       loadProfileFromStorage();
       renderPackages();
       updateAdvisorRecommendation();
-
-      // Double-click / Double-tap on Logo opens Password Prompt for Admin Panel
-      const logoTrigger = document.getElementById('logoAdminTrigger');
-      if (logoTrigger) {
-        let lastTapTime = 0;
-        logoTrigger.addEventListener('dblclick', function () {
-          requestAdminAccess();
-        });
-        logoTrigger.addEventListener('touchend', function (e) {
-          const currentTime = new Date().getTime();
-          const tapLength = currentTime - lastTapTime;
-          if (tapLength < 350 && tapLength > 0) {
-            e.preventDefault();
-            requestAdminAccess();
-          }
-          lastTapTime = currentTime;
-        });
-      }
-
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('admin') === '1') {
-        const adminBtn = document.getElementById('adminCustomizeBtn');
-        if (adminBtn) {
-          adminBtn.classList.remove('hidden');
-          adminBtn.classList.add('flex');
-        }
-      }
+      setInterval(updateSmartStatusIndicators, 60000);
     };
   </script>
 </body>
